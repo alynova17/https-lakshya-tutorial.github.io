@@ -1,1318 +1,1318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Lakshya Tutorial | Learn • Develop • Achieve</title>
-
-  <meta name="description"
-        content="Lakshya Tutorial is a student-focused educational and skill-development platform.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      background: #f7f9fc;
-      color: #172033;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    /* NAVBAR */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e6eaf0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav {
-      min-height: 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #2457d6;
-    }
-
-    .logo span {
-      color: #111827;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 600;
-      color: #39445a;
-    }
-
-    .nav-links a:hover {
-      color: #2457d6;
-    }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #eef4ff, #ffffff);
-      padding: 90px 0;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #e1ebff;
-      color: #2457d6;
-      padding: 7px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 6vw, 65px);
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: #2457d6;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #596579;
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: bold;
-      border: 1px solid #2457d6;
-      transition: 0.2s;
-    }
-
-    .btn-primary {
-      background: #2457d6;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1745b5;
-    }
-
-    .btn-secondary {
-      color: #2457d6;
-      background: white;
-    }
-
-    .hero-card {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 15px 45px rgba(20, 40, 80, 0.10);
-      border: 1px solid #e7ebf2;
-    }
-
-    .hero-card h3 {
-      margin-bottom: 18px;
-      font-size: 22px;
-    }
-
-    .hero-card-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 13px 0;
-      border-bottom: 1px solid #edf0f5;
-    }
-
-    .hero-card-item:last-child {
-      border-bottom: none;
-    }
-
-    /* GENERAL SECTIONS */
-    section {
-      padding: 75px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-    }
-
-    .section-heading h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .section-heading p {
-      color: #667085;
-    }
-
-    /* CARDS */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      padding: 28px;
-      border: 1px solid #e5e9f0;
-      border-radius: 14px;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(20, 40, 80, 0.08);
-    }
-
-    .icon {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin-bottom: 9px;
-    }
-
-    .card p {
-      color: #667085;
-      font-size: 15px;
-    }
-
-    /* COURSES */
-    .course-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .course-top {
-      padding: 25px;
-      background: #eef4ff;
-    }
-
-    .course-body {
-      padding: 25px;
-    }
-
-    .course-body ul {
-      padding-left: 18px;
-      margin: 15px 0;
-      color: #667085;
-    }
-
-    .course-tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: bold;
-      background: white;
-      color: #2457d6;
-      padding: 5px 9px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-    }
-
-    /* DEVELOPMENT */
-    .development {
-      background: #111827;
-      color: white;
-    }
-
-    .development .section-heading p {
-      color: #c5cad4;
-    }
-
-    .development .card {
-      background: #1b2434;
-      border-color: #2c374a;
-      color: white;
-    }
-
-    .development .card p {
-      color: #c5cad4;
-    }
-
-    /* STUDENT PROFILE */
-    .profile {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .profile-box {
-      background: white;
-      border: 1px solid #e5e9f0;
-      border-radius: 15px;
-      padding: 30px;
-    }
-
-    .student-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #e1ebff;
-      color: #2457d6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 35px;
-      font-weight: bold;
-      margin-bottom: 18px;
-    }
-
-    .profile-list {
-      list-style: none;
-    }
-
-    .profile-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid #edf0f5;
-    }
-
-    /* STATS */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .stat {
-      background: white;
-      border: 1px solid #e5e9f0;
-      padding: 25px;
-      text-align: center;
-      border-radius: 14px;
-    }
-
-    .stat h3 {
-      font-size: 34px;
-      color: #2457d6;
-    }
-
-    .stat p {
-      color: #667085;
-    }
-
-    /* BLOG */
-    .blog-card {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .blog-image {
-      height: 150px;
-      background: #e1ebff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 45px;
-    }
-
-    .blog-content {
-      padding: 24px;
-    }
-
-    /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .about-box {
-      background: white;
-      padding: 35px;
-      border-radius: 15px;
-      border: 1px solid #e5e9f0;
-    }
-
-    .check-list {
-      list-style: none;
-      margin-top: 20px;
-    }
-
-    .check-list li {
-      margin: 12px 0;
-    }
-
-    /* CONTACT */
-    .contact-box {
-      max-width: 750px;
-      margin: auto;
-      background: white;
-      padding: 35px;
-      border-radius: 15px;
-      border: 1px solid #e5e9f0;
-    }
-
-    form {
-      display: grid;
-      gap: 15px;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #d8dee9;
-      border-radius: 8px;
-      font: inherit;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      font: inherit;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #111827;
-      color: #c5cad4;
-      padding: 45px 0 25px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 35px;
-      margin-bottom: 35px;
-    }
-
-    footer h3,
-    footer h4 {
-      color: white;
-      margin-bottom: 12px;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
-      margin: 7px 0;
-    }
-
-    .copyright {
-      border-top: 1px solid #2c374a;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 850px) {
-      .hero-content,
-      .profile,
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      nav {
-        flex-direction: column;
-        padding: 15px 0;
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .grid,
-      .stats,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 55px 0;
-      }
-
-      .hero {
-        padding: 60px 0;
-      }
-
-      .section-heading h2 {
-        font-size: 29px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lakshya Tutorial | Learn • Grow • Achieve</title>
+
+<meta name="description" content="Lakshya Tutorial - Educational resources, courses, study materials, technology and digital skills for students.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --primary:#4f46e5;
+    --secondary:#7c3aed;
+    --accent:#06b6d4;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --muted:#cbd5e1;
+    --border:#334155;
+    --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    transition:.3s;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+}
+
+body.dark header{
+    background:rgba(15,23,42,.92);
+}
+
+.navbar{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo span{
+    color:var(--secondary);
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-size:.95rem;
+    font-weight:600;
+    color:var(--muted);
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.theme-btn,
+.menu-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    border-radius:10px;
+    padding:9px 12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* HERO */
+
+.hero{
+    padding:90px 0;
+    background:
+    radial-gradient(circle at 10% 20%,rgba(79,70,229,.15),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(6,182,212,.15),transparent 30%);
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:30px;
+    background:rgba(79,70,229,.1);
+    color:var(--primary);
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(2.4rem,6vw,4.5rem);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.gradient-text{
+    background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.1rem;
+    max-width:650px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:12px;
+    font-weight:700;
+    display:inline-block;
+    cursor:pointer;
+    border:none;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    background:var(--card);
+}
+
+.hero-card{
+    background:var(--card);
+    padding:30px;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.hero-card h3{
+    margin-bottom:18px;
+}
+
+.quick-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.quick-item:last-child{
+    border-bottom:none;
+}
+
+.icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background:rgba(79,70,229,.1);
+    font-size:22px;
+}
+
+/* GENERAL */
+
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:2.2rem;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.stat h3{
+    font-size:2rem;
+    color:var(--primary);
+}
+
+.stat p{
+    color:var(--muted);
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.tag{
+    display:inline-block;
+    margin-top:15px;
+    padding:5px 10px;
+    border-radius:20px;
+    background:rgba(79,70,229,.1);
+    color:var(--primary);
+    font-size:.8rem;
+    font-weight:700;
+}
+
+/* SEARCH */
+
+.search-box{
+    max-width:650px;
+    margin:0 auto 30px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px 18px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    outline:none;
+    font-size:1rem;
+}
+
+/* PROGRESS */
+
+.progress-card{
+    margin-top:15px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    height:10px;
+    background:var(--border);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+    border-radius:20px;
+}
+
+/* PROFILE */
+
+.profile{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:30px;
+    align-items:stretch;
+}
+
+.profile-left,
+.profile-right{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:35px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.profile-left p{
+    color:var(--muted);
+}
+
+.profile-list{
+    margin-top:20px;
+}
+
+.profile-list div{
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+}
+
+/* CERTIFICATES */
+
+.certificate{
+    position:relative;
+    overflow:hidden;
+}
+
+.certificate::before{
+    content:"CERTIFIED";
+    position:absolute;
+    right:-30px;
+    top:15px;
+    transform:rotate(35deg);
+    font-size:.7rem;
+    font-weight:800;
+    opacity:.15;
+}
+
+.certificate h3{
+    color:var(--primary);
+}
+
+/* PROJECT */
+
+.project{
+    display:flex;
+    flex-direction:column;
+}
+
+.project .btn{
+    margin-top:auto;
+    margin-top:20px;
+    align-self:flex-start;
+}
+
+/* BLOG */
+
+.blog-date{
+    color:var(--primary);
+    font-size:.85rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:35px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:700;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--bg);
+    color:var(--text);
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* FOOTER */
+
+footer{
+    padding:45px 0;
+    background:#0b1120;
+    color:white;
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-content p{
+    color:#cbd5e1;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.footer-links a{
+    color:#cbd5e1;
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid #334155;
+    margin-top:30px;
+    padding-top:20px;
+    color:#94a3b8;
+}
+
+/* ANIMATION */
+
+.fade{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:var(--card);
+        border-bottom:1px solid var(--border);
+        padding:20px;
+        flex-direction:column;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .navbar{
+        gap:10px;
+    }
+
+    .hero-content,
+    .profile{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-content{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    section{
+        padding:60px 0;
+    }
+
+    .hero{
+        padding:65px 0;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .buttons .btn{
+        width:100%;
+        text-align:center;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header>
-    <div class="container">
-      <nav>
-        <a href="#home" class="logo">
-          Lakshya<span>Tutorial</span>
-        </a>
-
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#development">Development</a></li>
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container hero-content">
-
-      <div>
-        <span class="badge">STUDENT-FOCUSED EDUCATION</span>
-
-        <h1>
-          Learn.<br>
-          <span>Develop.</span><br>
-          Achieve.
-        </h1>
-
-        <p>
-          Lakshya Tutorial is an educational and skill-development
-          platform designed to help students learn knowledge,
-          develop useful skills, build projects, and prepare for
-          their future.
-        </p>
-
-        <div class="buttons">
-          <a href="#courses" class="btn btn-primary">
-            Explore Courses
-          </a>
-
-          <a href="#development" class="btn btn-secondary">
-            Student Development
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <h3>What You'll Find Here</h3>
-
-        <div class="hero-card-item">
-          <span>📚 Learning</span>
-          <strong>Knowledge</strong>
-        </div>
-
-        <div class="hero-card-item">
-          <span>💻 Skills</span>
-          <strong>Development</strong>
-        </div>
-
-        <div class="hero-card-item">
-          <span>💡 Projects</span>
-          <strong>Practice</strong>
-        </div>
-
-        <div class="hero-card-item">
-          <span>🏆 Achievements</span>
-          <strong>Growth</strong>
-        </div>
-
-        <div class="hero-card-item">
-          <span>🚀 Career</span>
-          <strong>Future</strong>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- WHAT WE OFFER -->
-  <section id="offer">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>What We Offer</h2>
-        <p>
-          Resources and learning opportunities designed to support
-          students throughout their learning journey.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon">📚</div>
-          <h3>Study Resources</h3>
-          <p>
-            Notes, revision material, practice questions and
-            educational resources.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧠</div>
-          <h3>Practice & Quizzes</h3>
-          <p>
-            Test your knowledge through quizzes, MCQs and
-            practice activities.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">💻</div>
-          <h3>Digital Skills</h3>
-          <p>
-            Explore coding, technology, digital tools and
-            other useful modern skills.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>Study Skills</h3>
-          <p>
-            Learn effective study methods, organization and
-            time-management techniques.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🚀</div>
-          <h3>Career Awareness</h3>
-          <p>
-            Explore careers and discover skills that may help
-            with future education and work.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🛠️</div>
-          <h3>Learning Projects</h3>
-          <p>
-            Turn knowledge into practical projects and build
-            experience through practice.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- COURSES -->
-  <section id="courses">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Popular Courses</h2>
-        <p>
-          Explore subjects and skills that can support academic
-          learning and personal development.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card course-card">
-          <div class="course-top">
-            <span class="course-tag">ACADEMICS</span>
-            <h3>Science</h3>
-          </div>
-          <div class="course-body">
-            <p>Build strong foundations in scientific concepts.</p>
-            <ul>
-              <li>Concept learning</li>
-              <li>Practice questions</li>
-              <li>Revision</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-
-        <div class="card course-card">
-          <div class="course-top">
-            <span class="course-tag">ACADEMICS</span>
-            <h3>Mathematics</h3>
-          </div>
-          <div class="course-body">
-            <p>Develop mathematical thinking and problem-solving.</p>
-            <ul>
-              <li>Problem solving</li>
-              <li>Practice</li>
-              <li>Revision</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-
-        <div class="card course-card">
-          <div class="course-top">
-            <span class="course-tag">LANGUAGE</span>
-            <h3>English</h3>
-          </div>
-          <div class="course-body">
-            <p>Improve reading, writing and communication skills.</p>
-            <ul>
-              <li>Grammar</li>
-              <li>Writing</li>
-              <li>Communication</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-
-        <div class="card course-card">
-          <div class="course-top">
-            <span class="course-tag">TECHNOLOGY</span>
-            <h3>Coding & Technology</h3>
-          </div>
-          <div class="course-body">
-            <p>Begin your journey into programming and technology.</p>
-            <ul>
-              <li>HTML & CSS</li>
-              <li>Programming basics</li>
-              <li>Web projects</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-
-        <div class="card course-card">
-          <div class="course-top">
-            <span class="course-tag">DIGITAL</span>
-            <h3>Digital Marketing</h3>
-          </div>
-          <div class="course-body">
-            <p>Learn the fundamentals of digital marketing.</p>
-            <ul>
-              <li>Social media</li>
-              <li>Content</li>
-              <li>Digital strategy</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-
-        <div class="card course-card">
-          <div class="course-top">
-            <span class="course-tag">PERSONAL</span>
-            <h3>Communication</h3>
-          </div>
-          <div class="course-body">
-            <p>Develop confidence and effective communication.</p>
-            <ul>
-              <li>Speaking</li>
-              <li>Writing</li>
-              <li>Presentation skills</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- STUDENT DEVELOPMENT -->
-  <section class="development" id="development">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Student Development</h2>
-        <p>
-          Education isn't only about marks. Develop knowledge,
-          practical skills and confidence for the future.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon">📖</div>
-          <h3>Academic Growth</h3>
-          <p>
-            Build strong subject knowledge and better learning habits.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">💻</div>
-          <h3>Digital Literacy</h3>
-          <p>
-            Understand modern technology and digital tools.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🗣️</div>
-          <h3>Communication</h3>
-          <p>
-            Improve communication, presentation and writing skills.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧩</div>
-          <h3>Problem Solving</h3>
-          <p>
-            Learn to approach problems logically and creatively.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>Goal Setting</h3>
-          <p>
-            Set meaningful learning goals and track your progress.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🚀</div>
-          <h3>Future Skills</h3>
-          <p>
-            Explore skills that can support future education and careers.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- STUDENT PROFILE -->
-  <section id="student">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Student Profile</h2>
-        <p>A simple example of how student development can be presented.</p>
-      </div>
-
-      <div class="profile">
-
-        <div class="profile-box">
-          <div class="student-avatar">MA</div>
-
-          <h2>Mohammad Ali Ansari</h2>
-          <p>Class 11 • Science Student</p>
-
-          <br>
-
-          <p>
-            A student interested in learning technology, digital skills,
-            education and continuous self-development.
-          </p>
-        </div>
-
-        <div class="profile-box">
-          <h3>Learning Profile</h3>
-
-          <ul class="profile-list">
-            <li><strong>Class:</strong> 11</li>
-            <li><strong>Stream:</strong> Science</li>
-            <li><strong>Interests:</strong> Technology, Digital Skills, Learning</li>
-            <li><strong>Current Goal:</strong> Build useful skills</li>
-            <li><strong>Projects:</strong> Educational Website</li>
-            <li><strong>Certifications:</strong> In Progress</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- STATS -->
-  <section>
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Learning Journey</h2>
-        <p>Example progress indicators for a student portfolio.</p>
-      </div>
-
-      <div class="stats">
-
-        <div class="stat">
-          <h3>06</h3>
-          <p>Learning Areas</p>
-        </div>
-
-        <div class="stat">
-          <h3>03</h3>
-          <p>Projects</p>
-        </div>
-
-        <div class="stat">
-          <h3>05</h3>
-          <p>Skills</p>
-        </div>
-
-        <div class="stat">
-          <h3>01</h3>
-          <p>Website</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- RESOURCES -->
-  <section id="resources">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Study Resources</h2>
-        <p>
-          Helpful categories for organizing educational content.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon">📝</div>
-          <h3>Notes</h3>
-          <p>Organized subject notes for learning and revision.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">❓</div>
-          <h3>Question Bank</h3>
-          <p>Practice questions to test understanding.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">📋</div>
-          <h3>Revision Guides</h3>
-          <p>Quick revision resources for important topics.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧠</div>
-          <h3>Quizzes</h3>
-          <p>Short quizzes for knowledge checking.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">⏱️</div>
-          <h3>Study Planning</h3>
-          <p>Ideas for organizing study sessions and goals.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🔎</div>
-          <h3>Useful Links</h3>
-          <p>Curated educational resources and learning platforms.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Achievements & Certifications</h2>
-        <p>
-          Keep a record of courses, certificates, projects and achievements.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon">🏆</div>
-          <h3>Certificates</h3>
-          <p>Add verified certificates earned from reputable learning platforms.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🎓</div>
-          <h3>Courses Completed</h3>
-          <p>Track completed educational and professional courses.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🥇</div>
-          <h3>Competitions</h3>
-          <p>Record academic, technical or creative achievements.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Student Projects</h2>
-        <p>
-          Practical projects help turn learning into experience.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon">🌐</div>
-          <h3>Lakshya Tutorial Website</h3>
-          <p>
-            A student-built educational website created to practice
-            HTML, CSS and web development.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">💻</div>
-          <h3>Coding Projects</h3>
-          <p>
-            Small programming projects for developing logical
-            thinking and technical skills.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🔬</div>
-          <h3>Science Projects</h3>
-          <p>
-            Educational experiments, research and science-based
-            learning activities.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- BLOG -->
-  <section id="blog">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Learning Blog</h2>
-        <p>
-          A space for educational articles, study ideas and learning experiences.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card blog-card">
-          <div class="blog-image">📚</div>
-          <div class="blog-content">
-            <h3>How to Build Better Study Habits</h3>
-            <p>
-              Practical ideas for creating a consistent learning routine.
-            </p>
-          </div>
-        </div>
-
-        <div class="card blog-card">
-          <div class="blog-image">💻</div>
-          <div class="blog-content">
-            <h3>Why Students Should Learn Digital Skills</h3>
-            <p>
-              Explore how digital literacy can complement academic education.
-            </p>
-          </div>
-        </div>
-
-        <div class="card blog-card">
-          <div class="blog-image">🚀</div>
-          <div class="blog-content">
-            <h3>Learning Beyond the Classroom</h3>
-            <p>
-              Discover ways students can learn through projects and practice.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- CAREER -->
-  <section id="career">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Career & Future Skills</h2>
-        <p>
-          Start exploring possibilities early and develop transferable skills.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon">💡</div>
-          <h3>Explore Careers</h3>
-          <p>
-            Learn about different fields and discover what interests you.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🛠️</div>
-          <h3>Build Skills</h3>
-          <p>
-            Develop practical skills alongside your academic education.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">📁</div>
-          <h3>Build a Portfolio</h3>
-          <p>
-            Document projects, achievements and learning experiences.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-
-      <div class="about">
-
-        <div>
-          <span class="badge">ABOUT LAKSHYA TUTORIAL</span>
-
-          <h2 style="font-size: 38px; margin: 15px 0;">
-            Education with a focus on growth.
-          </h2>
-
-          <p style="color:#667085;">
-            Lakshya Tutorial is a student-focused educational project
-            created to organize learning resources and encourage
-            academic, digital and personal development.
-          </p>
-
-          <ul class="check-list">
-            <li>✓ Student-focused learning</li>
-            <li>✓ Practical skill development</li>
-            <li>✓ Project-based learning</li>
-            <li>✓ Continuous improvement</li>
-          </ul>
-        </div>
-
-        <div class="about-box">
-          <h3>Our Vision</h3>
-          <p>
-            To encourage students to become curious learners who
-            develop knowledge, practical skills and confidence.
-          </p>
-
-          <br>
-
-          <h3>Our Mission</h3>
-          <p>
-            Provide organized educational resources and learning
-            opportunities that complement classroom education.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-
-      <div class="section-heading">
-        <h2>Contact</h2>
-        <p>
-          Have an educational question or suggestion?
-        </p>
-      </div>
-
-      <div class="contact-box">
-
-        <form onsubmit="showMessage(event)">
-
-          <label for="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Your name"
-            required
-          >
-
-          <label for="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="Your email"
-            required
-          >
-
-          <label for="message">Message</label>
-          <textarea
-            id="message"
-            placeholder="Write your message..."
-            required
-          ></textarea>
-
-          <button class="btn btn-primary" type="submit">
-            Send Message
-          </button>
-
-        </form>
-
-        <p id="form-message"
-           style="display:none; margin-top:20px;">
-          Thanks! This demo form is working. A real contact system
-          would need a backend or form service.
-        </p>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div>
-          <h3>Lakshya Tutorial</h3>
-          <p>
-            Learn • Develop • Achieve
-          </p>
-          <br>
-          <p>
-            A student-focused educational and skill-development project.
-          </p>
-        </div>
-
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blog">Blog</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Development</h4>
-          <ul>
-            <li><a href="#development">Student Development</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#career">Career Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="copyright">
-        © 2026 Lakshya Tutorial. Educational project.
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- SMALL JAVASCRIPT -->
-  <script>
-    function showMessage(event) {
-      event.preventDefault();
-
-      document.getElementById("form-message").style.display = "block";
+<!-- NAVIGATION -->
+
+<header>
+<div class="container navbar">
+
+<a href="#home" class="logo">Lakshya <span>Tutorial</span></a>
+
+<nav class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#resources">Resources</a>
+<a href="#certificates">Achievements</a>
+<a href="#projects">Projects</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div>
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<div class="fade">
+
+<span class="badge">🎓 Learn • Grow • Achieve</span>
+
+<h1>
+Build Your
+<span class="gradient-text">Future</span>
+Through Learning
+</h1>
+
+<p>
+Welcome to Lakshya Tutorial — a student-focused educational platform
+for learning, developing useful skills, exploring technology and
+building a strong academic and professional foundation.
+</p>
+
+<div class="buttons">
+<a href="#courses" class="btn btn-primary">Explore Courses →</a>
+<a href="#about" class="btn btn-secondary">Learn More</a>
+</div>
+
+</div>
+
+
+<div class="hero-card fade">
+
+<h3>✨ What You Can Learn</h3>
+
+<div class="quick-item">
+<div class="icon">🔬</div>
+<div>
+<strong>Science</strong>
+<p>Concepts & study support</p>
+</div>
+</div>
+
+<div class="quick-item">
+<div class="icon">💻</div>
+<div>
+<strong>Technology</strong>
+<p>Coding & digital skills</p>
+</div>
+</div>
+
+<div class="quick-item">
+<div class="icon">📣</div>
+<div>
+<strong>Digital Marketing</strong>
+<p>Modern online skills</p>
+</div>
+</div>
+
+<div class="quick-item">
+<div class="icon">🚀</div>
+<div>
+<strong>Career Skills</strong>
+<p>Future-ready development</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- STATS -->
+
+<section>
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h3>06+</h3>
+<p>Learning Areas</p>
+</div>
+
+<div class="stat">
+<h3>20+</h3>
+<p>Study Topics</p>
+</div>
+
+<div class="stat">
+<h3>10+</h3>
+<p>Projects & Ideas</p>
+</div>
+
+<div class="stat">
+<h3>∞</h3>
+<p>Learning Potential</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- COURSES -->
+
+<section id="courses">
+
+<div class="container">
+
+<div class="section-title">
+<h2>📚 Learning Areas</h2>
+<p>Explore subjects and skills that can help you grow.</p>
+</div>
+
+<div class="search-box">
+<input
+type="text"
+id="courseSearch"
+placeholder="🔍 Search courses..."
+onkeyup="searchCourses()">
+</div>
+
+
+<div class="grid" id="courseGrid">
+
+<div class="card course">
+<div class="card-icon">🔬</div>
+<h3>Science</h3>
+<p>Explore physics, chemistry and biology concepts with structured learning.</p>
+<span class="tag">Academic</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">📐</div>
+<h3>Mathematics</h3>
+<p>Improve mathematical thinking, problem solving and logical reasoning.</p>
+<span class="tag">Academic</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">📖</div>
+<h3>English</h3>
+<p>Develop grammar, vocabulary, writing and communication skills.</p>
+<span class="tag">Language</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">💻</div>
+<h3>Coding & Technology</h3>
+<p>Learn HTML, CSS, programming concepts and modern digital tools.</p>
+<span class="tag">Technology</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">📣</div>
+<h3>Digital Marketing</h3>
+<p>Understand social media, content, email marketing and digital strategy.</p>
+<span class="tag">Career Skill</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">🗣️</div>
+<h3>Communication</h3>
+<p>Build confidence, presentation skills and professional communication.</p>
+<span class="tag">Soft Skill</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- LEARNING PROGRESS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>📊 Learning Progress</h2>
+<p>A simple example of how students can track their learning.</p>
+</div>
+
+<div class="grid">
+
+<div class="card progress-card">
+<div class="progress-info">
+<strong>Digital Skills</strong>
+<strong>75%</strong>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width:75%"></div>
+</div>
+</div>
+
+<div class="card progress-card">
+<div class="progress-info">
+<strong>Coding</strong>
+<strong>60%</strong>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width:60%"></div>
+</div>
+</div>
+
+<div class="card progress-card">
+<div class="progress-info">
+<strong>Communication</strong>
+<strong>70%</strong>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width:70%"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- RESOURCES -->
+
+<section id="resources">
+
+<div class="container">
+
+<div class="section-title">
+<h2>📖 Study Resources</h2>
+<p>Organize your learning with useful resources.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-icon">📝</div>
+<h3>Notes</h3>
+<p>Quick revision notes and important concepts for students.</p>
+<span class="tag">Study</span>
+</div>
+
+<div class="card">
+<div class="card-icon">📄</div>
+<h3>PDF Resources</h3>
+<p>Organize educational PDFs, reference materials and learning documents.</p>
+<span class="tag">Resources</span>
+</div>
+
+<div class="card">
+<div class="card-icon">🧠</div>
+<h3>Practice</h3>
+<p>Practice questions and exercises to strengthen understanding.</p>
+<span class="tag">Practice</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- STUDENT PROFILE -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>👨‍🎓 Student Profile</h2>
+<p>A sample student portfolio section.</p>
+</div>
+
+<div class="profile">
+
+<div class="profile-left">
+
+<div class="avatar">MA</div>
+
+<h2>Mohammad Ali Ansari</h2>
+
+<p>Class 11 • Science</p>
+
+<div class="profile-list">
+
+<div>🔬 Science Student</div>
+<div>💻 Technology Learner</div>
+<div>📣 Digital Skills Learner</div>
+<div>🚀 Future-focused</div>
+
+</div>
+
+</div>
+
+
+<div class="profile-right">
+
+<h2>About the Student</h2>
+
+<p style="margin-top:12px;color:var(--muted)">
+A student portfolio can showcase academic interests, technical skills,
+projects, certifications and continuous learning.
+</p>
+
+<br>
+
+<h3>Skills & Interests</h3>
+
+<div class="grid" style="margin-top:15px">
+
+<div class="card">
+<h3>💻 Technology</h3>
+<p>Web development & digital tools</p>
+</div>
+
+<div class="card">
+<h3>📣 Marketing</h3>
+<p>Digital marketing & content</p>
+</div>
+
+<div class="card">
+<h3>📚 Learning</h3>
+<p>Continuous skill development</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CERTIFICATES -->
+
+<section id="certificates">
+
+<div class="container">
+
+<div class="section-title">
+<h2>🏆 Achievements & Certifications</h2>
+<p>Showcase completed courses and learning achievements.</p>
+</div>
+
+<div class="grid">
+
+<div class="card certificate">
+<h3>🎓 Digital Marketing</h3>
+<p>Completed a digital marketing learning program.</p>
+<span class="tag">Certificate</span>
+</div>
+
+<div class="card certificate">
+<h3>📱 Social Media Marketing</h3>
+<p>Learning achievement in social media marketing concepts.</p>
+<span class="tag">Certificate</span>
+</div>
+
+<div class="card certificate">
+<h3>💻 Technology Learning</h3>
+<p>Developing skills through online technology courses.</p>
+<span class="tag">Learning</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-title">
+<h2>💻 Student Projects</h2>
+<p>Projects demonstrate practical learning and creativity.</p>
+</div>
+
+<div class="grid">
+
+<div class="card project">
+<div class="card-icon">🌐</div>
+<h3>Educational Website</h3>
+<p>
+A responsive educational website created using HTML and CSS
+for learning and portfolio development.
+</p>
+<a href="#home" class="btn btn-primary">View Project</a>
+</div>
+
+<div class="card project">
+<div class="card-icon">📊</div>
+<h3>Learning Dashboard</h3>
+<p>
+A concept for tracking courses, learning progress,
+achievements and study goals.
+</p>
+<a href="#home" class="btn btn-primary">Explore</a>
+</div>
+
+<div class="card project">
+<div class="card-icon">🚀</div>
+<h3>Future Portfolio</h3>
+<p>
+A growing student portfolio for showcasing skills,
+certifications and future projects.
+</p>
+<a href="#about" class="btn btn-primary">Learn More</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- BLOG -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>📰 Learning Blog</h2>
+<p>Short ideas for students who want to keep improving.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="blog-date">LEARNING</div>
+<h3>Why Continuous Learning Matters</h3>
+<p>
+Learning doesn't stop after school. Developing useful skills
+can create more opportunities in the future.
+</p>
+</div>
+
+<div class="card">
+<div class="blog-date">TECHNOLOGY</div>
+<h3>Start Learning to Code</h3>
+<p>
+HTML and CSS are great starting points for understanding
+how websites are created.
+</p>
+</div>
+
+<div class="card">
+<div class="blog-date">CAREER</div>
+<h3>Build Your Student Portfolio</h3>
+<p>
+Projects, certificates and skills can help students document
+their learning journey.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title">
+<h2>🎓 About Lakshya Tutorial</h2>
+<p>Learning with purpose.</p>
+</div>
+
+<div class="card" style="max-width:900px;margin:auto;text-align:center">
+
+<p>
+<strong>Lakshya Tutorial</strong> is an educational project designed
+to organize study resources and encourage students to develop
+academic, digital and future-ready skills.
+</p>
+
+<br>
+
+<p>
+The goal is simple:
+<strong>Learn new things, practice consistently, build useful skills,
+and move towards your goals.</strong>
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+<h2>📩 Contact</h2>
+<p>Use this demo form for your website project.</p>
+</div>
+
+<div class="contact-box">
+
+<form onsubmit="sendMessage(event)">
+
+<div class="form-group">
+<label>Name</label>
+<input type="text" placeholder="Enter your name" required>
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" placeholder="Enter your email" required>
+</div>
+
+<div class="form-group">
+<label>Message</label>
+<textarea placeholder="Write your message..." required></textarea>
+</div>
+
+<button class="btn btn-primary" type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-content">
+
+<div>
+<h2>Lakshya Tutorial</h2>
+<p style="margin-top:10px">
+Learn • Grow • Achieve
+</p>
+<p style="margin-top:10px">
+An educational portfolio and learning project.
+</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+
+<div class="footer-links" style="margin-top:10px">
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#resources">Resources</a>
+<a href="#projects">Projects</a>
+</div>
+
+</div>
+
+<div>
+<h3>Focus Areas</h3>
+
+<div class="footer-links" style="margin-top:10px">
+<a href="#courses">Science</a>
+<a href="#courses">Technology</a>
+<a href="#courses">Digital Skills</a>
+<a href="#certificates">Achievements</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Lakshya Tutorial • Educational Project
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+
+/* DARK MODE */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+    const button=document.querySelector(".theme-btn");
+
+    if(document.body.classList.contains("dark")){
+        button.textContent="☀️";
+        localStorage.setItem("theme","dark");
+    }else{
+        button.textContent="🌙";
+        localStorage.setItem("theme","light");
     }
-  </script>
+
+}
+
+
+/* LOAD THEME */
+
+if(localStorage.getItem("theme")==="dark"){
+    document.body.classList.add("dark");
+    document.querySelector(".theme-btn").textContent="☀️";
+}
+
+
+/* COURSE SEARCH */
+
+function searchCourses(){
+
+    const input=document
+        .getElementById("courseSearch")
+        .value
+        .toLowerCase();
+
+    const courses=document.querySelectorAll(".course");
+
+    courses.forEach(function(course){
+
+        const text=course.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            course.style.display="block";
+        }else{
+            course.style.display="none";
+        }
+
+    });
+
+}
+
+
+/* CONTACT FORM */
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    alert(
+        "Thank you! This is a demo contact form. " +
+        "To receive real messages, a backend or form service needs to be connected."
+    );
+
+}
+
+</script>
 
 </body>
 </html>
