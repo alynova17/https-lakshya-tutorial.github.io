@@ -1336,6 +1336,61 @@ function sendMessage(event){
   const auth = getAuth(app);
 
   console.log("Firebase connected successfully!");
+document.getElementById("registerBtn").addEventListener("click", async () => {
+  const email = document.getElementById("registerEmail").value;
+  const password = document.getElementById("registerPassword").value;
+  const message = document.getElementById("authMessage");
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    message.textContent = "Registration successful!";
+  } catch (error) {
+    message.textContent = error.message;
+  }
+});
+
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  const message = document.getElementById("authMessage");
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    message.textContent = "Login successful!";
+  } catch (error) {
+    message.textContent = error.message;
+  }
+});
 </script>
+<!-- Student Login & Registration -->
+<div style="max-width:400px;margin:40px auto;padding:25px;border:1px solid #ddd;border-radius:12px;">
+  <h2>Student Registration</h2>
+
+  <input id="registerEmail" type="email" placeholder="Email"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+
+  <input id="registerPassword" type="password" placeholder="Password"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+
+  <button id="registerBtn" style="width:100%;padding:12px;margin:8px 0;">
+    Register
+  </button>
+
+  <hr>
+
+  <h2>Student Login</h2>
+
+  <input id="loginEmail" type="email" placeholder="Email"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+
+  <input id="loginPassword" type="password" placeholder="Password"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+
+  <button id="loginBtn" style="width:100%;padding:12px;margin:8px 0;">
+    Login
+  </button>
+
+  <p id="authMessage"></p>
+</div>
 </body>
 </html>
