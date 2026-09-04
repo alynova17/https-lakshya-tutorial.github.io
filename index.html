@@ -1336,7 +1336,8 @@ function sendMessage(event){
   const auth = getAuth(app);
 
   console.log("Firebase connected successfully!");
-document.getElementById("registerBtn").addEventListener("click", async () => {
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("registerBtn").addEventListener("click", async () => {
   const email = document.getElementById("registerEmail").value;
   const password = document.getElementById("registerPassword").value;
   const message = document.getElementById("authMessage");
@@ -1360,6 +1361,7 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   } catch (error) {
     message.textContent = error.message;
   }
+});
 });
 </script>
 <!-- Student Login & Registration -->
