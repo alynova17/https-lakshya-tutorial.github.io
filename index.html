@@ -1341,7 +1341,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const email = document.getElementById("registerEmail").value;
   const password = document.getElementById("registerPassword").value;
   const message = document.getElementById("authMessage");
-
+const name = document.getElementById("registerName").value;
+const dob = document.getElementById("registerDOB").value;
+        
   try {
     await createUserWithEmailAndPassword(auth, email, password);
     message.textContent = "Registration successful!";
@@ -1368,7 +1370,13 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
 <div style="max-width:400px;margin:40px auto;padding:25px;border:1px solid #ddd;border-radius:12px;">
   <h2>Student Registration</h2>
 
-  <input id="registerEmail" type="email" placeholder="Email"
+  <input id="registerName" type="text" placeholder="Full Name"
+  style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+
+<input id="registerDOB" type="date"
+  style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+    
+    <input id="registerEmail" type="email" placeholder="Email"
     style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
 
   <input id="registerPassword" type="password" placeholder="Password"
