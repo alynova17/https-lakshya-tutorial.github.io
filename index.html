@@ -1399,6 +1399,12 @@ document.getElementById("profileBtn").addEventListener("click", () => {
   document.getElementById("studentProfile").style.display = "block";
 });
 
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await signOut(auth);
+  document.getElementById("studentProfile").style.display = "none";
+  document.getElementById("authMessage").textContent = "Logged out successfully!";
+});
+
 });
 </script>
 <button id="profileBtn" onclick="document.getElementById('studentProfile').scrollIntoView({behavior:'smooth'})" style="padding:12px 20px;margin:10px;">
