@@ -1393,10 +1393,18 @@ if (studentSnap.exists()) {
   } catch (error) {
     message.textContent = error.message;
   }
+      });
+
+document.getElementById("profileBtn").addEventListener("click", () => {
+  document.getElementById("studentProfile").style.display = "block";
 });
+
 });
 </script>
-<!-- Student Login & Registration -->
+<button id="profileBtn" style="padding:12px 20px;margin:10px;">
+  Profile
+</button>
+    <!-- Student Login & Registration -->
 <div style="max-width:400px;margin:40px auto;padding:25px;border:1px solid #ddd;border-radius:12px;">
   <h2>Student Registration</h2>
 
