@@ -1378,9 +1378,9 @@ const studentSnap = await getDoc(studentRef);
 
 if (studentSnap.exists()) {
   const student = studentSnap.data();
-  message.textContent = "Welcome, " + student.name + "!";
+  message.textContent = "NAME FOUND: " + student.name;
 } else {
-  message.textContent = "Login successful!";
+  message.textContent = "PROFILE NOT FOUND";
     }
     
   } catch (error) {
