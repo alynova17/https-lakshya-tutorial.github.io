@@ -1350,14 +1350,16 @@ const name = document.getElementById("registerName").value;
 const dob = document.getElementById("registerDOB").value;
         
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 const user = userCredential.user;
 
-const userCredential = await signInWithEmailAndPassword(auth, email, password);
-const user = userCredential.user;
+await setDoc(doc(db, "students", user.uid), {
+  name: name,
+  dob: dob,
+  email: user.email
+});
 
-message.textContent = "Login successful!";
-    message.textContent = "Registration successful!";
+message.textContent = "Registration successful!";
   } catch (error) {
     message.textContent = error.message;
   }
