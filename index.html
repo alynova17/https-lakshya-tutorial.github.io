@@ -1378,7 +1378,14 @@ const studentSnap = await getDoc(studentRef);
 
 if (studentSnap.exists()) {
   const student = studentSnap.data();
-  message.textContent = "NAME FOUND: " + student.name;
+
+  message.textContent = "Welcome, " + student.name + "!";
+
+  document.getElementById("profileName").textContent = student.name;
+  document.getElementById("profileDOB").textContent = student.dob;
+  document.getElementById("profileEmail").textContent = student.email;
+
+  document.getElementById("studentProfile").style.display = "block";
 } else {
   message.textContent = "PROFILE NOT FOUND";
     }
