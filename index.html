@@ -1373,8 +1373,16 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
+const studentRef = doc(db, "students", user.uid);
+const studentSnap = await getDoc(studentRef);
 
-    message.textContent = "Login successful!";
+if (studentSnap.exists()) {
+  const student = studentSnap.data();
+  message.textContent = "Welcome, " + student.name + "!";
+} else {
+  message.textContent = "Login successful!";
+    }
+    
   } catch (error) {
     message.textContent = error.message;
   }
