@@ -1371,10 +1371,19 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   const message = document.getElementById("authMessage");
 
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-const user = userCredential.user;
-    
+  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  const user = userCredential.user;
+
+  const studentRef = doc(db, "students", user.uid);
+  const studentSnap = await getDoc(studentRef);
+
+  if (studentSnap.exists()) {
+    const student = studentSnap.data();
+    message.textContent = "Welcome, " + student.name + "!";
+  } else {
     message.textContent = "Login successful!";
+  }
+    }
   } catch (error) {
     message.textContent = error.message;
   }
