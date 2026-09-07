@@ -1320,9 +1320,13 @@ function sendMessage(event){
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut
+    signOut, 
   } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
+import {
+  getFirestore,
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
   const firebaseConfig = {
     apiKey: "AIzaSyBZYc90TM1p9eXE56K6V-q1EZrpF_E1aD8",
     authDomain: "lakshya-tutorial-8d4bf.firebaseapp.com",
@@ -1333,7 +1337,7 @@ function sendMessage(event){
   };
 
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+  const auth = getAuth(app);const db = getFirestore(app);
 
   console.log("Firebase connected successfully!");
 document.addEventListener("DOMContentLoaded", () => {
@@ -1358,8 +1362,14 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   const message = document.getElementById("authMessage");
 
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    message.textContent = "Login successful!";
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+const user = userCredential.user;
+      await setDoc(doc(db, "students", user.uid), {
+  name: name,
+  dob: dob,
+  email: user.email
+});
+    message.textContent = "Registration successful!";
   } catch (error) {
     message.textContent = error.message;
   }
