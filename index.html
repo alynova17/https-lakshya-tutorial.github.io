@@ -1325,7 +1325,8 @@ function sendMessage(event){
 import {
   getFirestore,
   doc,
-  setDoc
+  setDoc,
+   getDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
   const firebaseConfig = {
     apiKey: "AIzaSyBZYc90TM1p9eXE56K6V-q1EZrpF_E1aD8",
@@ -1349,14 +1350,13 @@ const name = document.getElementById("registerName").value;
 const dob = document.getElementById("registerDOB").value;
         
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
 const user = userCredential.user;
 
-await setDoc(doc(db, "students", user.uid), {
-  name: name,
-  dob: dob,
-  email: user.email
-});
+const userCredential = await signInWithEmailAndPassword(auth, email, password);
+const user = userCredential.user;
+
+message.textContent = "Login successful!";
     message.textContent = "Registration successful!";
   } catch (error) {
     message.textContent = error.message;
@@ -1369,14 +1369,10 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   const message = document.getElementById("authMessage");
 
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
 const user = userCredential.user;
-      await setDoc(doc(db, "students", user.uid), {
-  name: name,
-  dob: dob,
-  email: user.email
-});
-    message.textContent = "Registration successful!";
+    
+    message.textContent = "Login successful!";
   } catch (error) {
     message.textContent = error.message;
   }
