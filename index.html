@@ -1378,11 +1378,11 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   const studentSnap = await getDoc(studentRef);
 
   if (studentSnap.exists()) {
-    const student = studentSnap.data();
-    message.textContent = "Welcome, " + student.name + "!";
-  } else {
-    message.textContent = "Login successful!";
-  }
+  const student = studentSnap.data();
+  message.textContent = "Welcome, " + student.name + "!";
+} else {
+  message.textContent = "Student profile not found.";
+    }
     }
   } catch (error) {
     message.textContent = error.message;
