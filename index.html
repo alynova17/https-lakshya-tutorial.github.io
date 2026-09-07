@@ -1403,7 +1403,13 @@ document.getElementById("profileBtn").addEventListener("click", () => {
   await signOut(auth);
   document.getElementById("studentProfile").style.display = "none";
   document.getElementById("authMessage").textContent = "Logged out successfully!";
+
+        auth.onAuthStateChanged((user) => {
+  if (!user) {
+    document.getElementById("studentProfile").style.display = "none";
+  }
 });
+    });
 
 });
 </script>
