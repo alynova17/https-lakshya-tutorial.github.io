@@ -1400,15 +1400,27 @@ document.getElementById("profileBtn").addEventListener("click", () => {
 });
 
    document.getElementById("teacherLoginBtn").addEventListener("click", async () => {
-  const email = document.getElementById("teacherEmail").value;
+  const email = document.getElementById("teacherEmail").value.trim();
   const password = document.getElementById("teacherPassword").value;
   const message = document.getElementById("teacherMessage");
 
+  if (email !== "mdnazimansari333@gmail.com") {
+    message.textContent = "Teacher access denied.";
+    return;
+  }
+
   try {
     await signInWithEmailAndPassword(auth, email, password);
+
     message.textContent = "Teacher login successful!";
+
+    document.getElementById("teacherDashboard").style.display = "block";
+    document.getElementById("teacherDashboard").scrollIntoView({
+      behavior: "smooth"
+    });
+
   } catch (error) {
-    message.textContent = "Teacher login failed: " + error.message;
+    message.textContent = "Teacher login failed.";
   }
 });
     document.getElementById("logoutBtn").addEventListener("click", async () => {
