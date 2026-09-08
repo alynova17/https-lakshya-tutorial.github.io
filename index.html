@@ -1419,6 +1419,26 @@ document.getElementById("profileBtn").addEventListener("click", () => {
 
       const studentsSnapshot = await getDocs(collection(db, "students"));
 document.getElementById("studentCount").textContent = studentsSnapshot.size;
+      const studentList = document.getElementById("studentList");
+studentList.innerHTML = "";
+
+studentsSnapshot.forEach((studentDoc) => {
+  const student = studentDoc.data();
+
+  const studentBox = document.createElement("div");
+  studentBox.style.padding = "12px";
+  studentBox.style.marginTop = "10px";
+  studentBox.style.border = "1px solid #ddd";
+  studentBox.style.borderRadius = "8px";
+
+  studentBox.innerHTML = `
+    <strong>${student.name || "No Name"}</strong><br>
+    DOB: ${student.dob || "Not provided"}<br>
+    Email: ${student.email || "Not provided"}
+  `;
+
+  studentList.appendChild(studentBox);
+});
       
     document.getElementById("teacherDashboard").style.display = "block";
     document.getElementById("teacherDashboard").scrollIntoView({
