@@ -1399,6 +1399,18 @@ document.getElementById("profileBtn").addEventListener("click", () => {
   document.getElementById("studentProfile").style.display = "block";
 });
 
+   document.getElementById("teacherLoginBtn").addEventListener("click", async () => {
+  const email = document.getElementById("teacherEmail").value;
+  const password = document.getElementById("teacherPassword").value;
+  const message = document.getElementById("teacherMessage");
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    message.textContent = "Teacher login successful!";
+  } catch (error) {
+    message.textContent = "Teacher login failed: " + error.message;
+  }
+});
     document.getElementById("logoutBtn").addEventListener("click", async () => {
   await signOut(auth);
   document.getElementById("studentProfile").style.display = "none";
