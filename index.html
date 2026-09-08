@@ -1423,6 +1423,20 @@ const searchInput = document.getElementById("studentSearch");
       
       const studentList = document.getElementById("studentList");
 studentList.innerHTML = "";
+      const studentList = document.getElementById("studentList");
+studentList.innerHTML = "";
+
+searchInput.addEventListener("input", () => {
+  const searchText = searchInput.value.toLowerCase();
+
+  const studentBoxes = studentList.children;
+
+  for (const box of studentBoxes) {
+    const studentText = box.textContent.toLowerCase();
+
+    box.style.display = studentText.includes(searchText) ? "block" : "none";
+  }
+});
 
 studentsSnapshot.forEach((studentDoc) => {
   const student = studentDoc.data();
