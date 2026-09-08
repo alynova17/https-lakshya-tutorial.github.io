@@ -1414,6 +1414,9 @@ document.getElementById("profileBtn").addEventListener("click", () => {
 
     message.textContent = "Teacher login successful!";
 
+      const studentsSnapshot = await getDocs(collection(db, "students"));
+document.getElementById("studentCount").textContent = studentsSnapshot.size;
+      
     document.getElementById("teacherDashboard").style.display = "block";
     document.getElementById("teacherDashboard").scrollIntoView({
       behavior: "smooth"
