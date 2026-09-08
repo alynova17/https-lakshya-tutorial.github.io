@@ -1420,7 +1420,7 @@ document.getElementById("profileBtn").addEventListener("click", () => {
     });
 
   } catch (error) {
-    message.textContent = "Teacher login failed.";
+    message.textContent = "Teacher login failed: " + error.message;
   }
 });
     document.getElementById("logoutBtn").addEventListener("click", async () => {
