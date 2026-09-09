@@ -1450,7 +1450,7 @@ const studentId = studentDoc.id;
   DOB: ${student.dob || "Not provided"}<br>
   Email: ${student.email || "Not provided"}<br><br>
 
-<button onclick="openEditStudent('${studentId}')">
+<button type="button" onclick="window.openEditStudent('${studentId}')">
   Edit Student
 </button>
 `;
