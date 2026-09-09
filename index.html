@@ -1437,26 +1437,31 @@ studentList.innerHTML = "";
 
   studentsSnapshot.forEach((studentDoc) => {
   const student = studentDoc.data();
-const studentId = studentDoc.id;
- 
-      const studentBox = document.createElement("div");
+  const studentId = studentDoc.id;
+
+  const studentBox = document.createElement("div");
   studentBox.style.padding = "12px";
   studentBox.style.marginTop = "10px";
   studentBox.style.border = "1px solid #ddd";
   studentBox.style.borderRadius = "8px";
 
   studentBox.innerHTML = `
-  <strong>${student.name || "No Name"}</strong><br>
-  DOB: ${student.dob || "Not provided"}<br>
-  Email: ${student.email || "Not provided"}<br><br>
+    <strong>${student.name || "No Name"}</strong><br>
+    DOB: ${student.dob || "Not provided"}<br>
+    Email: ${student.email || "Not provided"}<br><br>
+  `;
 
-<button type="button" onclick="window.openEditStudent('${studentId}')">
-  Edit Student
-</button>
-`;
+  const editButton = document.createElement("button");
+  editButton.type = "button";
+  editButton.textContent = "Edit Student";
 
+  editButton.addEventListener("click", () => {
+    window.openEditStudent(studentId);
+  });
+
+  studentBox.appendChild(editButton);
   studentList.appendChild(studentBox);
-    });  
+});
     document.getElementById("teacherDashboard").style.display = "block";
     document.getElementById("teacherDashboard").scrollIntoView({
       behavior: "smooth"
