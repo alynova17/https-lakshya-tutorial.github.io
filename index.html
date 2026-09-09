@@ -1465,6 +1465,48 @@ studentList.innerHTML = "";
   studentBox.appendChild(editButton);
   studentList.appendChild(studentBox);
 });
+      // Load website ratings
+const ratingsSnapshot = await getDocs(
+  collection(db, "websiteRatings")
+);
+
+let totalRating = 0;
+let ratingCount = 0;
+
+const ratingList = document.getElementById("ratingList");
+ratingList.innerHTML = "";
+
+ratingsSnapshot.forEach((ratingDoc) => {
+  const rating = ratingDoc.data();
+
+  totalRating += Number(rating.rating);
+  ratingCount++;
+
+  const ratingBox = document.createElement("div");
+
+  ratingBox.style.padding = "12px";
+  ratingBox.style.marginTop = "10px";
+  ratingBox.style.border = "1px solid #ddd";
+  ratingBox.style.borderRadius = "8px";
+
+  ratingBox.innerHTML = `
+    <strong>${"⭐".repeat(Number(rating.rating))}</strong><br>
+    ${rating.feedback || "No feedback written."}
+  `;
+
+  ratingList.appendChild(ratingBox);
+});
+
+const average =
+  ratingCount > 0
+    ? (totalRating / ratingCount).toFixed(1)
+    : "0.0";
+
+document.getElementById("averageRating").textContent =
+  average + " ⭐";
+
+document.getElementById("ratingCount").textContent =
+  ratingCount + (ratingCount === 1 ? " rating" : " ratings");
     document.getElementById("teacherDashboard").style.display = "block";
     document.getElementById("teacherDashboard").scrollIntoView({
       behavior: "smooth"
@@ -1658,6 +1700,29 @@ document.getElementById("submitRatingBtn").addEventListener("click", async () =>
 >
 
 <div id="studentList"></div>
+    <!-- Website Ratings -->
+<div style="margin-top:30px;padding:20px;border:1px solid #ddd;border-radius:12px;">
+
+  <h3>⭐ Website Ratings</h3>
+
+  <div style="text-align:center;margin:15px 0;">
+    <div style="font-size:14px;color:#666;">AVERAGE RATING</div>
+
+    <div id="averageRating"
+      style="font-size:36px;font-weight:bold;margin:5px 0;">
+      0.0 ⭐
+    </div>
+
+    <div id="ratingCount" style="color:#666;">
+      0 ratings
+    </div>
+  </div>
+
+  <h4>Student Feedback</h4>
+
+  <div id="ratingList"></div>
+
+</div>
   <div id="editStudentForm" style="display:none;margin-top:20px;padding:15px;border:1px solid #ddd;border-radius:12px;">
   <h3>Edit Student</h3>
 
