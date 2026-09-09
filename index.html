@@ -1467,7 +1467,8 @@ const studentId = studentDoc.id;
   }
 });
     window.openEditStudent = async (studentId) => {
-  const studentSnap = await getDoc(doc(db, "students", studentId));
+ currentStudentId = studentId;
+        const studentSnap = await getDoc(doc(db, "students", studentId));
 
   if (!studentSnap.exists()) {
     alert("Student not found.");
@@ -1482,6 +1483,31 @@ const studentId = studentDoc.id;
 
   document.getElementById("editStudentForm").style.display = "block";
 };
+
+    document.getElementById("saveStudentBtn").addEventListener("click", async () => {
+  const name = document.getElementById("editName").value.trim();
+  const dob = document.getElementById("editDOB").value;
+  const email = document.getElementById("editEmail").value.trim();
+
+  if (!name || !email) {
+    alert("Name and Email are required.");
+    return;
+  }
+
+  try {
+    await setDoc(doc(db, "students", currentStudentId), {
+      name: name,
+      dob: dob,
+      email: email
+    });
+
+    alert("Student updated successfully!");
+    document.getElementById("editStudentForm").style.display = "none";
+
+  } catch (error) {
+    alert("Update failed: " + error.message);
+  }
+});
     document.getElementById("logoutBtn").addEventListener("click", async () => {
   await signOut(auth);
   document.getElementById("studentProfile").style.display = "none";
