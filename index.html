@@ -1645,6 +1645,35 @@ document.getElementById("submitRatingBtn").addEventListener("click", async () =>
   }
 
 });
+    // Post Teacher Announcement
+document.getElementById("postAnnouncementBtn").addEventListener("click", async () => {
+
+  const title = document.getElementById("announcementTitle").value.trim();
+  const text = document.getElementById("announcementText").value.trim();
+  const message = document.getElementById("announcementMessage");
+
+  if (!title || !text) {
+    message.textContent = "Please enter both a title and announcement.";
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, "announcements"), {
+      title: title,
+      text: text,
+      createdAt: new Date().toISOString()
+    });
+
+    message.textContent = "Announcement posted successfully! 📢";
+
+    document.getElementById("announcementTitle").value = "";
+    document.getElementById("announcementText").value = "";
+
+  } catch (error) {
+    message.textContent = "Could not post announcement: " + error.message;
+  }
+
+});
 });
 </script>
 <button id="profileBtn" onclick="document.getElementById('studentProfile').scrollIntoView({behavior:'smooth'})" style="padding:12px 20px;margin:10px;">
@@ -1762,6 +1791,36 @@ document.getElementById("submitRatingBtn").addEventListener("click", async () =>
   <div id="ratingList"></div>
 
 </div>
+
+<!-- Teacher Announcements -->
+<div style="margin-top:30px;padding:20px;border:1px solid #ddd;border-radius:12px;">
+
+  <h3>📢 Teacher Announcement</h3>
+
+  <input
+    id="announcementTitle"
+    type="text"
+    placeholder="Announcement title"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;"
+  >
+
+  <textarea
+    id="announcementText"
+    placeholder="Write your announcement..."
+    style="width:100%;height:100px;padding:12px;margin:8px 0;box-sizing:border-box;"
+  ></textarea>
+
+  <button
+    id="postAnnouncementBtn"
+    style="width:100%;padding:12px;margin-top:8px;"
+  >
+    Post Announcement
+  </button>
+
+  <p id="announcementMessage"></p>
+
+</div>
+    
   <div id="editStudentForm" style="display:none;margin-top:20px;padding:15px;border:1px solid #ddd;border-radius:12px;">
   <h3>Edit Student</h3>
 
