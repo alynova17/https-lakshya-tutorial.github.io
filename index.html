@@ -1425,10 +1425,8 @@ const searchInput = document.getElementById("studentSearch");
 studentList.innerHTML = "";
       
 
-searchInput.addEventListener("input", () => {
-  
 
-studentsSnapshot.forEach((studentDoc) => {
+  studentsSnapshot.forEach((studentDoc) => {
   const student = studentDoc.data();
 
   const studentBox = document.createElement("div");
