@@ -1341,7 +1341,9 @@ import {
   };
 
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);const db = getFirestore(app);
+  const auth = getAuth(app);
+const db = getFirestore(app);
+let currentStudentId = "";
 
   console.log("Firebase connected successfully!");
 document.addEventListener("DOMContentLoaded", () => {
@@ -1472,7 +1474,7 @@ studentList.innerHTML = "";
   }
 });
     window.openEditStudent = async function(studentId) {
-window.openEditStudent = async function(studentId) {
+
   currentStudentId = studentId;
 
   try {
