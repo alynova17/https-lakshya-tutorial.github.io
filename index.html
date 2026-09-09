@@ -1646,7 +1646,9 @@ document.getElementById("submitRatingBtn").addEventListener("click", async () =>
 
 });
     // Post Teacher Announcement
-document.getElementById("postAnnouncementBtn").addEventListener("click", async () => {
+const postAnnouncementBtn = document.getElementById("postAnnouncementBtn");
+
+if (postAnnouncementBtn) {
 
   const title = document.getElementById("announcementTitle").value.trim();
   const text = document.getElementById("announcementText").value.trim();
@@ -1663,7 +1665,7 @@ document.getElementById("postAnnouncementBtn").addEventListener("click", async (
       text: text,
       createdAt: new Date().toISOString()
     });
-
+  }
     message.textContent = "Announcement posted successfully! 📢";
 
     document.getElementById("announcementTitle").value = "";
