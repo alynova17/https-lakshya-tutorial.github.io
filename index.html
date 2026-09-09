@@ -1467,8 +1467,9 @@ const studentId = studentDoc.id;
   }
 });
     window.openEditStudent = async (studentId) => {
- currentStudentId = studentId;
-        const studentSnap = await getDoc(doc(db, "students", studentId));
+  currentStudentId = studentId;
+
+  const studentSnap = await getDoc(doc(db, "students", studentId));
 
   if (!studentSnap.exists()) {
     alert("Student not found.");
