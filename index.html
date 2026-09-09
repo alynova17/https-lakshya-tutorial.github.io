@@ -1445,10 +1445,11 @@ studentList.innerHTML = "";
   studentBox.style.borderRadius = "8px";
 
   studentBox.innerHTML = `
-    <strong>${student.name || "No Name"}</strong><br>
-    DOB: ${student.dob || "Not provided"}<br>
-    Email: ${student.email || "Not provided"}
-  `;
+  <strong>${student.name || "No Name"}</strong><br>
+  DOB: ${student.dob || "Not provided"}<br>
+  Email: ${student.email || "Not provided"}<br><br>
+  <button>Edit Student</button>
+`;
 
   studentList.appendChild(studentBox);
 });
