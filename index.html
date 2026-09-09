@@ -1674,6 +1674,37 @@ document.getElementById("postAnnouncementBtn").addEventListener("click", async (
   }
 
 });
+    // Load Teacher Announcements for Students
+const announcementsSnapshot = await getDocs(
+  collection(db, "announcements")
+);
+
+const announcementList = document.getElementById("announcementList");
+announcementList.innerHTML = "";
+
+if (announcementsSnapshot.empty) {
+  announcementList.innerHTML = "<p>No announcements yet.</p>";
+} else {
+
+  announcementsSnapshot.forEach((announcementDoc) => {
+
+    const announcement = announcementDoc.data();
+
+    const box = document.createElement("div");
+
+    box.style.padding = "12px";
+    box.style.marginTop = "10px";
+    box.style.border = "1px solid #ddd";
+    box.style.borderRadius = "8px";
+
+    box.innerHTML = `
+      <strong>${announcement.title || "Announcement"}</strong>
+      <p>${announcement.text || ""}</p>
+    `;
+
+    announcementList.appendChild(box);
+  });
+    }
 });
 </script>
 <button id="profileBtn" onclick="document.getElementById('studentProfile').scrollIntoView({behavior:'smooth'})" style="padding:12px 20px;margin:10px;">
@@ -1690,6 +1721,18 @@ document.getElementById("postAnnouncementBtn").addEventListener("click", async (
     style="padding:12px 20px;margin:5px;border:none;border-radius:8px;">
     🔄 Refresh
   </button>
+
+    <!-- Student Announcements -->
+<div id="studentAnnouncements"
+  style="max-width:600px;margin:20px auto;padding:20px;border:1px solid #ddd;border-radius:12px;">
+
+  <h3>📢 Teacher Announcements</h3>
+
+  <div id="announcementList">
+    <p>No announcements yet.</p>
+  </div>
+
+</div>
 
   <button
     onclick="document.getElementById('ratingBox').style.display='block'"
