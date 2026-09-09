@@ -1437,8 +1437,9 @@ studentList.innerHTML = "";
 
   studentsSnapshot.forEach((studentDoc) => {
   const student = studentDoc.data();
-
-  const studentBox = document.createElement("div");
+const studentId = studentDoc.id;
+ 
+      const studentBox = document.createElement("div");
   studentBox.style.padding = "12px";
   studentBox.style.marginTop = "10px";
   studentBox.style.border = "1px solid #ddd";
@@ -1449,7 +1450,7 @@ studentList.innerHTML = "";
   DOB: ${student.dob || "Not provided"}<br>
   Email: ${student.email || "Not provided"}<br><br>
 
-<button onclick="document.getElementById('editStudentForm').style.display='block'">
+<button onclick="openEditStudent('${studentId}')">
   Edit Student
 </button>
 `;
@@ -1465,6 +1466,22 @@ studentList.innerHTML = "";
     message.textContent = "Teacher login failed: " + error.message;
   }
 });
+    window.openEditStudent = async (studentId) => {
+  const studentSnap = await getDoc(doc(db, "students", studentId));
+
+  if (!studentSnap.exists()) {
+    alert("Student not found.");
+    return;
+  }
+
+  const student = studentSnap.data();
+
+  document.getElementById("editName").value = student.name || "";
+  document.getElementById("editDOB").value = student.dob || "";
+  document.getElementById("editEmail").value = student.email || "";
+
+  document.getElementById("editStudentForm").style.display = "block";
+};
     document.getElementById("logoutBtn").addEventListener("click", async () => {
   await signOut(auth);
   document.getElementById("studentProfile").style.display = "none";
