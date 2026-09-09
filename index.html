@@ -1423,7 +1423,16 @@ const searchInput = document.getElementById("studentSearch");
       
       const studentList = document.getElementById("studentList");
 studentList.innerHTML = "";
-      
+  searchInput.oninput = () => {
+  const searchText = searchInput.value.toLowerCase();
+
+  for (const box of studentList.children) {
+    box.style.display =
+      box.textContent.toLowerCase().includes(searchText)
+        ? "block"
+        : "none";
+  }
+};    
 
 
   studentsSnapshot.forEach((studentDoc) => {
