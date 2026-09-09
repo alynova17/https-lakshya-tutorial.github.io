@@ -1472,25 +1472,31 @@ studentList.innerHTML = "";
   }
 });
     window.openEditStudent = async function(studentId) {
+window.openEditStudent = async function(studentId) {
   currentStudentId = studentId;
 
-  const studentSnap = await getDoc(doc(db, "students", studentId));
+  try {
+    const studentSnap = await getDoc(doc(db, "students", studentId));
 
-  if (!studentSnap.exists()) {
-    alert("Student not found.");
-    return;
+    if (!studentSnap.exists()) {
+      alert("Student not found.");
+      return;
+    }
+
+    const student = studentSnap.data();
+
+    document.getElementById("editName").value = student.name || "";
+    document.getElementById("editDOB").value = student.dob || "";
+    document.getElementById("editEmail").value = student.email || "";
+
+    document.getElementById("editStudentForm").style.display = "block";
+
+  } catch (error) {
+    alert("Error: " + error.message);
   }
-
-  const student = studentSnap.data();
-
-  document.getElementById("editName").value = student.name || "";
-  document.getElementById("editDOB").value = student.dob || "";
-  document.getElementById("editEmail").value = student.email || "";
-
-  document.getElementById("editStudentForm").style.display = "block";
 };
 
-    document.getElementById("saveStudentBtn").addEventListener("click", async () => {
+document.getElementById("saveStudentBtn").addEventListener("click", async () => {
   const name = document.getElementById("editName").value.trim();
   const dob = document.getElementById("editDOB").value;
   const email = document.getElementById("editEmail").value.trim();
@@ -1514,6 +1520,7 @@ studentList.innerHTML = "";
     alert("Update failed: " + error.message);
   }
 });
+        
     document.getElementById("logoutBtn").addEventListener("click", async () => {
   await signOut(auth);
   document.getElementById("studentProfile").style.display = "none";
