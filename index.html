@@ -1521,7 +1521,22 @@ studentList.innerHTML = "";
 >
 
 <div id="studentList"></div>
-    
+  <div id="editStudentForm" style="display:none;margin-top:20px;padding:15px;border:1px solid #ddd;border-radius:12px;">
+  <h3>Edit Student</h3>
+
+  <input id="editName" type="text" placeholder="Student Name"
+    style="width:100%;padding:10px;margin:6px 0;box-sizing:border-box;">
+
+  <input id="editDOB" type="date"
+    style="width:100%;padding:10px;margin:6px 0;box-sizing:border-box;">
+
+  <input id="editEmail" type="email" placeholder="Email"
+    style="width:100%;padding:10px;margin:6px 0;box-sizing:border-box;">
+
+  <button id="saveStudentBtn" style="width:100%;padding:10px;margin-top:10px;">
+    Save Changes
+  </button>
+  </div>  
 </div>
     
     <!-- Student Login & Registration -->
