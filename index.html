@@ -1449,7 +1449,9 @@ studentList.innerHTML = "";
   DOB: ${student.dob || "Not provided"}<br>
   Email: ${student.email || "Not provided"}<br><br>
 
-<button onclick="alert('Edit Student feature is ready')">Edit Student</button>
+<button onclick="document.getElementById('editStudentForm').style.display='block'">
+  Edit Student
+</button>
 `;
 
   studentList.appendChild(studentBox);
