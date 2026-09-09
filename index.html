@@ -1466,7 +1466,7 @@ const studentId = studentDoc.id;
     message.textContent = "Teacher login failed: " + error.message;
   }
 });
-    window.openEditStudent = async (studentId) => {
+    window.openEditStudent = async function(studentId) {
   currentStudentId = studentId;
 
   const studentSnap = await getDoc(doc(db, "students", studentId));
