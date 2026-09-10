@@ -1621,7 +1621,10 @@ document.getElementById("saveStudentBtn").addEventListener("click", async () => 
   }
 });
     });
-document.getElementById("submitRatingBtn").addEventListener("click", async () => {
+const submitRatingBtn = document.getElementById("submitRatingBtn");
+
+if (submitRatingBtn) {
+  submitRatingBtn.addEventListener("click", async () => {
 
   const rating = document.getElementById("websiteRating").value;
   const feedback = document.getElementById("websiteFeedback").value.trim();
@@ -1650,6 +1653,7 @@ document.getElementById("submitRatingBtn").addEventListener("click", async () =>
   }
 
 });
+}
     // Post Teacher Announcement
 const postAnnouncementBtn = document.getElementById("postAnnouncementBtn");
 
