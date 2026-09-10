@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lakshya Tutorial | Learn • Grow • Achieve</title>
+
+<meta name="description" content="Lakshya Tutorial - Educational resources, courses, study materials, technology and digital skills for students.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --primary:#4f46e5;
+    --secondary:#7c3aed;
+    --accent:#06b6d4;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --muted:#cbd5e1;
+    --border:#334155;
+    --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    transition:.3s;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+}
+
+body.dark header{
+    background:rgba(15,23,42,.92);
+}
+
+.navbar{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo span{
+    color:var(--secondary);
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-size:.95rem;
+    font-weight:600;
+    color:var(--muted);
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.theme-btn,
+.menu-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    border-radius:10px;
+    padding:9px 12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* HERO */
+
+.hero{
+    padding:90px 0;
+    background:
+    radial-gradient(circle at 10% 20%,rgba(79,70,229,.15),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(6,182,212,.15),transparent 30%);
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:30px;
+    background:rgba(79,70,229,.1);
+    color:var(--primary);
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(2.4rem,6vw,4.5rem);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.gradient-text{
+    background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.1rem;
+    max-width:650px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:12px;
+    font-weight:700;
+    display:inline-block;
+    cursor:pointer;
+    border:none;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    background:var(--card);
+}
+
+.hero-card{
+    background:var(--card);
+    padding:30px;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.hero-card h3{
+    margin-bottom:18px;
+}
+
+.quick-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.quick-item:last-child{
+    border-bottom:none;
+}
+
+.icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background:rgba(79,70,229,.1);
+    font-size:22px;
+}
+
+/* GENERAL */
+
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:2.2rem;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.stat h3{
+    font-size:2rem;
+    color:var(--primary);
+}
+
+.stat p{
+    color:var(--muted);
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.tag{
+    display:inline-block;
+    margin-top:15px;
+    padding:5px 10px;
+    border-radius:20px;
+    background:rgba(79,70,229,.1);
+    color:var(--primary);
+    font-size:.8rem;
+    font-weight:700;
+}
+
+/* SEARCH */
+
+.search-box{
+    max-width:650px;
+    margin:0 auto 30px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px 18px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    outline:none;
+    font-size:1rem;
+}
+
+/* PROGRESS */
+
+.progress-card{
+    margin-top:15px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    height:10px;
+    background:var(--border);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+    border-radius:20px;
+}
+
+/* PROFILE */
+
+.profile{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:30px;
+    align-items:stretch;
+}
+
+.profile-left,
+.profile-right{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:35px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.profile-left p{
+    color:var(--muted);
+}
+
+.profile-list{
+    margin-top:20px;
+}
+
+.profile-list div{
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+}
+
+/* CERTIFICATES */
+
+.certificate{
+    position:relative;
+    overflow:hidden;
+}
+
+.certificate::before{
+    content:"CERTIFIED";
+    position:absolute;
+    right:-30px;
+    top:15px;
+    transform:rotate(35deg);
+    font-size:.7rem;
+    font-weight:800;
+    opacity:.15;
+}
+
+.certificate h3{
+    color:var(--primary);
+}
+
+/* PROJECT */
+
+.project{
+    display:flex;
+    flex-direction:column;
+}
+
+.project .btn{
+    margin-top:auto;
+    margin-top:20px;
+    align-self:flex-start;
+}
+
+/* BLOG */
+
+.blog-date{
+    color:var(--primary);
+    font-size:.85rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:35px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:700;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--bg);
+    color:var(--text);
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* FOOTER */
+
+footer{
+    padding:45px 0;
+    background:#0b1120;
+    color:white;
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-content p{
+    color:#cbd5e1;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.footer-links a{
+    color:#cbd5e1;
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid #334155;
+    margin-top:30px;
+    padding-top:20px;
+    color:#94a3b8;
+}
+
+/* ANIMATION */
+
+.fade{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:var(--card);
+        border-bottom:1px solid var(--border);
+        padding:20px;
+        flex-direction:column;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .navbar{
+        gap:10px;
+    }
+
+    .hero-content,
+    .profile{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-content{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    section{
+        padding:60px 0;
+    }
+
+    .hero{
+        padding:65px 0;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .buttons .btn{
+        width:100%;
+        text-align:center;
+    }
+}
+</style>
+<style id="lt-clean-ui">
+.lt-legacy-control{display:none!important}
+</style>
+
+<style id="lt-person-cleanup">
+/* Keep the top account buttons; hide duplicate standalone navigation controls. */
+.lt-old-nav, #oldTeacherLoginBtn, #oldRefreshBtn, #oldAnnouncementsBtn, #oldProfileBtn, #oldRateBtn { display:none !important; }
+/* Clean person/profile button */
+.lt-profile-person { width:42px!important;height:42px!important;min-width:42px!important;padding:0!important;border-radius:50%!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:20px!important;line-height:1!important;cursor:pointer!important; }
+</style>
+</head>
+
+<body>
+
+<!-- LT COMPLETE THREE-DOT MENU -->
+<button id="ltMenuBtn" aria-label="Open LT menu" style="position:fixed;left:12px;top:12px;z-index:10001;width:44px;height:44px;border:none;border-radius:12px;background:#111;color:#fff;font-size:28px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18);">⋮</button>
+<div id="ltMenuOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:9998;"></div>
+
+<aside id="ltSideMenu" aria-label="LT navigation" style="position:fixed;left:0;top:0;height:100vh;width:290px;max-width:82vw;background:#fff;z-index:9999;transform:translateX(-105%);transition:transform .25s ease;box-shadow:6px 0 24px rgba(0,0,0,.18);overflow-y:auto;padding:22px 18px;box-sizing:border-box;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+    <strong style="font-size:20px;">LT — Lakshya Tutorial</strong>
+    <button id="ltMenuClose" aria-label="Close menu" style="border:none;background:transparent;font-size:28px;cursor:pointer;">×</button>
+  </div>
+
+  <div class="lt-menu-heading">LEARN</div>
+  <button class="lt-menu-item" data-section="home">🏠 Home</button>
+  <button class="lt-menu-item" data-section="studyMaterials">📚 Study Materials</button>
+  <button class="lt-menu-item" data-section="tests">📝 Tests &amp; Quizzes</button>
+  <button class="lt-menu-item" data-section="aiAssist">🤖 LT AI Assist</button>
+
+  <div class="lt-menu-heading">PROGRESS</div>
+  <button class="lt-menu-item" data-section="progress">📊 My Progress</button>
+  <button class="lt-menu-item" data-section="rank">🏆 LT Rank</button>
+  <button class="lt-menu-item" data-section="streak">🔥 LT Streak</button>
+  <button class="lt-menu-item" data-section="badges">🎖️ LT Badges</button>
+
+  <div class="lt-menu-heading">UPDATES</div>
+  <button class="lt-menu-item" data-section="notifications">🔔 Notifications</button>
+  <button class="lt-menu-item" data-section="announcements">📢 Announcements</button>
+  <button class="lt-menu-item" data-section="newMaterials">🆕 New Materials</button>
+
+  <div class="lt-menu-heading">ACCOUNT</div>
+  <button class="lt-menu-item" data-section="profile">👤 Profile</button>
+  <button class="lt-menu-item" data-section="settings">⚙️ Settings</button>
+  <button class="lt-menu-item" data-section="rate">⭐ Rate Website</button>
+  <button class="lt-menu-item" data-section="logout">🚪 Logout</button>
+
+  <div class="lt-menu-heading">TEACHER</div>
+  <button class="lt-menu-item" data-section="teacher">👨‍🏫 Teacher Login</button>
+</aside>
+
+<div id="ltFeatureHub" style="display:none;margin:24px auto;max-width:900px;padding:0 16px;box-sizing:border-box;">
+  <div id="ltFeatureCard" style="background:#fff;border:1px solid #e5e5e5;border-radius:18px;padding:24px;box-shadow:0 4px 18px rgba(0,0,0,.06);">
+    <div id="ltFeatureTitle" style="font-size:24px;font-weight:700;margin-bottom:8px;"></div>
+    <div id="ltFeatureText" style="color:#666;line-height:1.6;"></div>
+    <div id="ltFeatureStatus" style="margin-top:18px;padding:14px;border-radius:12px;background:#f7f7f7;"></div>
+  </div>
+</div>
+
+<style>
+.lt-menu-heading{font-size:12px;font-weight:700;color:#777;margin:18px 0 8px;letter-spacing:.04em;}
+.lt-menu-item{display:block;width:100%;text-align:left;border:none;background:transparent;padding:12px 10px;margin:2px 0;border-radius:10px;font-size:15px;cursor:pointer;}
+.lt-menu-item:hover{background:#f1f1f1;}
+</style>
+
+<script>
+(function(){
+  const btn=document.getElementById('ltMenuBtn');
+  const menu=document.getElementById('ltSideMenu');
+  const overlay=document.getElementById('ltMenuOverlay');
+  const close=document.getElementById('ltMenuClose');
+  const hub=document.getElementById('ltFeatureHub');
+  const title=document.getElementById('ltFeatureTitle');
+  const text=document.getElementById('ltFeatureText');
+  const status=document.getElementById('ltFeatureStatus');
+
+  function openMenu(){menu.style.transform='translateX(0)';overlay.style.display='block';}
+  function closeMenu(){menu.style.transform='translateX(-105%)';overlay.style.display='none';}
+
+  btn.addEventListener('click',openMenu);
+  close.addEventListener('click',closeMenu);
+  overlay.addEventListener('click',closeMenu);
+
+  const existingIds={
+    home:'top',
+    profile:'studentProfile',
+    announcements:'announcementList',
+    rate:'ratingList',
+    teacher:'teacherLogin'
+  };
+
+  const featureInfo={
+    studyMaterials:['Study Materials','Your teacher will add notes, PDFs, and learning resources here when available.','Ready for teacher-added materials.'],
+    tests:['Tests & Quizzes','A dedicated place for LT tests and quizzes will be connected here.','Tests feature is ready to be built.'],
+    aiAssist:['LT AI Assist','Ask doubts, explain topics, get hints, revise, and plan study sessions.','AI Assist will be connected securely when its backend is added.'],
+    progress:['My Progress','Your learning progress, completed work, and study activity will appear here.','Progress tracking is ready for the next development stage.'],
+    rank:['LT Rank','A fair LT ranking system can be added later using real learning activity.','Ranking system is planned.'],
+    streak:['LT Streak','Track consistent study activity without encouraging unhealthy study habits.','Streak system is planned.'],
+    badges:['LT Badges','Earn badges for useful learning milestones and achievements.','Badge system is planned.'],
+    notifications:['Notifications','Important student updates and teacher messages will appear here.','No new notifications yet.'],
+    newMaterials:['New Materials','New notes, PDFs, and learning resources added by your teacher will appear here.','No new materials yet.'],
+    settings:['Settings','Account and website preferences will be managed here.','Settings page is planned.']
+  };
+
+  document.querySelectorAll('.lt-menu-item').forEach(item=>{
+    item.addEventListener('click',()=>{
+      const key=item.dataset.section;
+      closeMenu();
+
+      if(key==='logout'){
+        const logoutBtn=document.getElementById('logoutBtn');
+        if(logoutBtn){ logoutBtn.click(); return; }
+        alert('Logout is available from the existing student account area.');
+        return;
+      }
+
+      if(existingIds[key]){
+        const el=document.getElementById(existingIds[key]);
+        if(el){el.scrollIntoView({behavior:'smooth',block:'start'});return;}
+      }
+
+      if(featureInfo[key]){
+        hub.style.display='block';
+        title.textContent=featureInfo[key][0];
+        text.textContent=featureInfo[key][1];
+        status.textContent=featureInfo[key][2];
+        hub.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+})();
+</script>
+
+
+<!-- NAVIGATION -->
+
+<header>
+<div class="container navbar">
+
+<a href="#home" class="logo">Lakshya <span>Tutorial</span></a>
+
+<nav class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#resources">Resources</a>
+<a href="#certificates">Achievements</a>
+<a href="#projects">Projects</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+<button id="topLoginBtn" type="button" style="padding:9px 12px;border:1px solid #ddd;border-radius:9px;background:#fff;cursor:pointer;font-weight:600;">Login</button>
+<button id="topSignupBtn" type="button" style="padding:9px 12px;border:none;border-radius:9px;background:#111;color:#fff;cursor:pointer;font-weight:600;">Sign Up</button>
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+
+</div>
+</header>
+
+<!-- LT STUDENT ACCOUNT AREA -->
+<section id="studentAccount" style="padding:28px 0 10px;scroll-margin-top:20px;">
+  <div class="container">
+    <div style="max-width:900px;margin:auto;padding:24px;border:1px solid #e3e3e3;border-radius:18px;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.06);">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.65;">LT STUDENT PORTAL</div>
+        <h2 style="margin:7px 0 6px;">Login or create your student account</h2>
+        <p style="margin:0;opacity:.75;">Your account keeps your student profile connected to Lakshya Tutorial.</p>
+      </div>
+
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:18px;flex-wrap:wrap;">
+        <button id="accountLoginTab" type="button" style="padding:10px 18px;border:1px solid #ddd;border-radius:10px;background:#111;color:#fff;cursor:pointer;font-weight:600;">Login</button>
+        <button id="accountSignupTab" type="button" style="padding:10px 18px;border:1px solid #ddd;border-radius:10px;background:#fff;color:#111;cursor:pointer;font-weight:600;">Sign Up</button>
+      </div>
+
+      <div id="accountLoginPanel" style="max-width:430px;margin:auto;">
+        <h3 style="margin-top:0;">Student Login</h3>
+        <input id="loginEmail" type="email" placeholder="Email" autocomplete="email" style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;border:1px solid #ddd;border-radius:9px;">
+        <input id="loginPassword" type="password" placeholder="Password" autocomplete="current-password" style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;border:1px solid #ddd;border-radius:9px;">
+        <button id="loginBtn" type="button" style="width:100%;padding:12px;margin:8px 0;border:none;border-radius:9px;background:#111;color:#fff;cursor:pointer;font-weight:600;">Login</button>
+      </div>
+
+      <div id="accountSignupPanel" style="max-width:430px;margin:auto;display:none;">
+        <h3 style="margin-top:0;">Create Student Account</h3>
+        <input id="registerName" type="text" placeholder="Full Name" autocomplete="name" style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;border:1px solid #ddd;border-radius:9px;">
+        <input id="registerDOB" type="date" style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;border:1px solid #ddd;border-radius:9px;">
+        <input id="registerEmail" type="email" placeholder="Email" autocomplete="email" style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;border:1px solid #ddd;border-radius:9px;">
+        <input id="registerPassword" type="password" placeholder="Password" autocomplete="new-password" style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;border:1px solid #ddd;border-radius:9px;">
+        <button id="registerBtn" type="button" style="width:100%;padding:12px;margin:8px 0;border:none;border-radius:9px;background:#111;color:#fff;cursor:pointer;font-weight:600;">Create Account</button>
+      </div>
+
+      <p id="authMessage" style="text-align:center;min-height:24px;margin:12px 0 0;"></p>
+
+      <div id="studentProfile" style="display:none;margin:22px auto 0;max-width:430px;padding:20px;border:1px solid #ddd;border-radius:14px;background:#fafafa;">
+        <h3 style="margin-top:0;">Student Profile</h3>
+        <p><strong>Name:</strong> <span id="profileName"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="profileDOB"></span></p>
+        <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+        <button id="logoutBtn" type="button" style="width:100%;padding:12px;margin-top:15px;border:1px solid #ddd;border-radius:9px;background:#fff;cursor:pointer;">Logout</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<div class="fade">
+
+<span class="badge">🎓 Learn • Grow • Achieve</span>
+
+<h1>
+Build Your
+<span class="gradient-text">Future</span>
+Through Learning
+</h1>
+
+<p>
+Welcome to Lakshya Tutorial — a student-focused educational platform
+for learning, developing useful skills, exploring technology and
+building a strong academic and professional foundation.
+</p>
+
+<div class="buttons">
+<a href="#courses" class="btn btn-primary">Explore Courses →</a>
+<a href="#about" class="btn btn-secondary">Learn More</a>
+</div>
+
+</div>
+
+
+<div class="hero-card fade">
+
+<h3>✨ What You Can Learn</h3>
+
+<div class="quick-item">
+<div class="icon">🔬</div>
+<div>
+<strong>Science</strong>
+<p>Concepts & study support</p>
+</div>
+</div>
+
+<div class="quick-item">
+<div class="icon">💻</div>
+<div>
+<strong>Technology</strong>
+<p>Coding & digital skills</p>
+</div>
+</div>
+
+<div class="quick-item">
+<div class="icon">📣</div>
+<div>
+<strong>Digital Marketing</strong>
+<p>Modern online skills</p>
+</div>
+</div>
+
+<div class="quick-item">
+<div class="icon">🚀</div>
+<div>
+<strong>Career Skills</strong>
+<p>Future-ready development</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- STATS -->
+
+<section>
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h3>06+</h3>
+<p>Learning Areas</p>
+</div>
+
+<div class="stat">
+<h3>20+</h3>
+<p>Study Topics</p>
+</div>
+
+<div class="stat">
+<h3>10+</h3>
+<p>Projects & Ideas</p>
+</div>
+
+<div class="stat">
+<h3>∞</h3>
+<p>Learning Potential</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- COURSES -->
+
+<section id="courses">
+
+<div class="container">
+
+<div class="section-title">
+<h2>📚 Learning Areas</h2>
+<p>Explore subjects and skills that can help you grow.</p>
+</div>
+
+<div class="search-box">
+<input
+type="text"
+id="courseSearch"
+placeholder="🔍 Search courses..."
+onkeyup="searchCourses()">
+</div>
+
+
+<div class="grid" id="courseGrid">
+
+<div class="card course">
+<div class="card-icon">🔬</div>
+<h3>Science</h3>
+<p>Explore physics, chemistry and biology concepts with structured learning.</p>
+<span class="tag">Academic</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">📐</div>
+<h3>Mathematics</h3>
+<p>Improve mathematical thinking, problem solving and logical reasoning.</p>
+<span class="tag">Academic</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">📖</div>
+<h3>English</h3>
+<p>Develop grammar, vocabulary, writing and communication skills.</p>
+<span class="tag">Language</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">💻</div>
+<h3>Coding & Technology</h3>
+<p>Learn HTML, CSS, programming concepts and modern digital tools.</p>
+<span class="tag">Technology</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">📣</div>
+<h3>Digital Marketing</h3>
+<p>Understand social media, content, email marketing and digital strategy.</p>
+<span class="tag">Career Skill</span>
+</div>
+
+<div class="card course">
+<div class="card-icon">🗣️</div>
+<h3>Communication</h3>
+<p>Build confidence, presentation skills and professional communication.</p>
+<span class="tag">Soft Skill</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- LEARNING PROGRESS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>📊 Learning Progress</h2>
+<p>A simple example of how students can track their learning.</p>
+</div>
+
+<div class="grid">
+
+<div class="card progress-card">
+<div class="progress-info">
+<strong>Digital Skills</strong>
+<strong>75%</strong>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width:75%"></div>
+</div>
+</div>
+
+<div class="card progress-card">
+<div class="progress-info">
+<strong>Coding</strong>
+<strong>60%</strong>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width:60%"></div>
+</div>
+</div>
+
+<div class="card progress-card">
+<div class="progress-info">
+<strong>Communication</strong>
+<strong>70%</strong>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width:70%"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- RESOURCES -->
+
+<section id="resources">
+
+<div class="container">
+
+<div class="section-title">
+<h2>📖 Study Resources</h2>
+<p>Organize your learning with useful resources.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-icon">📝</div>
+<h3>Notes</h3>
+<p>Quick revision notes and important concepts for students.</p>
+<span class="tag">Study</span>
+</div>
+
+<div class="card">
+<div class="card-icon">📄</div>
+<h3>PDF Resources</h3>
+<p>Organize educational PDFs, reference materials and learning documents.</p>
+<span class="tag">Resources</span>
+</div>
+
+<div class="card">
+<div class="card-icon">🧠</div>
+<h3>Practice</h3>
+<p>Practice questions and exercises to strengthen understanding.</p>
+<span class="tag">Practice</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- STUDENT PROFILE -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>👨‍🎓 Student Profile</h2>
+<p>A sample student portfolio section.</p>
+</div>
+
+<div class="profile">
+
+<div class="profile-left">
+
+<div class="avatar">MA</div>
+
+<h2>Mohammad Ali Ansari</h2>
+
+<p>Class 11 • Science</p>
+
+<div class="profile-list">
+
+<div>🔬 Science Student</div>
+<div>💻 Technology Learner</div>
+<div>📣 Digital Skills Learner</div>
+<div>🚀 Future-focused</div>
+
+</div>
+
+</div>
+
+
+<div class="profile-right">
+
+<h2>About the Student</h2>
+
+<p style="margin-top:12px;color:var(--muted)">
+A student portfolio can showcase academic interests, technical skills,
+projects, certifications and continuous learning.
+</p>
+
+<br>
+
+<h3>Skills & Interests</h3>
+
+<div class="grid" style="margin-top:15px">
+
+<div class="card">
+<h3>💻 Technology</h3>
+<p>Web development & digital tools</p>
+</div>
+
+<div class="card">
+<h3>📣 Marketing</h3>
+<p>Digital marketing & content</p>
+</div>
+
+<div class="card">
+<h3>📚 Learning</h3>
+<p>Continuous skill development</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CERTIFICATES -->
+
+<section id="certificates">
+
+<div class="container">
+
+<div class="section-title">
+<h2>🏆 Achievements & Certifications</h2>
+<p>Showcase completed courses and learning achievements.</p>
+</div>
+
+<div class="grid">
+
+<div class="card certificate">
+<h3>🎓 Digital Marketing</h3>
+<p>Completed a digital marketing learning program.</p>
+<span class="tag">Certificate</span>
+</div>
+
+<div class="card certificate">
+<h3>📱 Social Media Marketing</h3>
+<p>Learning achievement in social media marketing concepts.</p>
+<span class="tag">Certificate</span>
+</div>
+
+<div class="card certificate">
+<h3>💻 Technology Learning</h3>
+<p>Developing skills through online technology courses.</p>
+<span class="tag">Learning</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-title">
+<h2>💻 Student Projects</h2>
+<p>Projects demonstrate practical learning and creativity.</p>
+</div>
+
+<div class="grid">
+
+<div class="card project">
+<div class="card-icon">🌐</div>
+<h3>Educational Website</h3>
+<p>
+A responsive educational website created using HTML and CSS
+for learning and portfolio development.
+</p>
+<a href="#home" class="btn btn-primary">View Project</a>
+</div>
+
+<div class="card project">
+<div class="card-icon">📊</div>
+<h3>Learning Dashboard</h3>
+<p>
+A concept for tracking courses, learning progress,
+achievements and study goals.
+</p>
+<a href="#home" class="btn btn-primary">Explore</a>
+</div>
+
+<div class="card project">
+<div class="card-icon">🚀</div>
+<h3>Future Portfolio</h3>
+<p>
+A growing student portfolio for showcasing skills,
+certifications and future projects.
+</p>
+<a href="#about" class="btn btn-primary">Learn More</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- BLOG -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>📰 Learning Blog</h2>
+<p>Short ideas for students who want to keep improving.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="blog-date">LEARNING</div>
+<h3>Why Continuous Learning Matters</h3>
+<p>
+Learning doesn't stop after school. Developing useful skills
+can create more opportunities in the future.
+</p>
+</div>
+
+<div class="card">
+<div class="blog-date">TECHNOLOGY</div>
+<h3>Start Learning to Code</h3>
+<p>
+HTML and CSS are great starting points for understanding
+how websites are created.
+</p>
+</div>
+
+<div class="card">
+<div class="blog-date">CAREER</div>
+<h3>Build Your Student Portfolio</h3>
+<p>
+Projects, certificates and skills can help students document
+their learning journey.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title">
+<h2>🎓 About Lakshya Tutorial</h2>
+<p>Learning with purpose.</p>
+</div>
+
+<div class="card" style="max-width:900px;margin:auto;text-align:center">
+
+<p>
+<strong>Lakshya Tutorial</strong> is an educational project designed
+to organize study resources and encourage students to develop
+academic, digital and future-ready skills.
+</p>
+
+<br>
+
+<p>
+The goal is simple:
+<strong>Learn new things, practice consistently, build useful skills,
+and move towards your goals.</strong>
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+<h2>📩 Contact</h2>
+<p>Use this demo form for your website project.</p>
+</div>
+
+<div class="contact-box">
+
+<form onsubmit="sendMessage(event)">
+
+<div class="form-group">
+<label>Name</label>
+<input type="text" placeholder="Enter your name" required>
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" placeholder="Enter your email" required>
+</div>
+
+<div class="form-group">
+<label>Message</label>
+<textarea placeholder="Write your message..." required></textarea>
+</div>
+
+<button class="btn btn-primary" type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-content">
+
+<div>
+<h2>Lakshya Tutorial</h2>
+<p style="margin-top:10px">
+Learn • Grow • Achieve
+</p>
+<p style="margin-top:10px">
+An educational portfolio and learning project.
+</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+
+<div class="footer-links" style="margin-top:10px">
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#resources">Resources</a>
+<a href="#projects">Projects</a>
+</div>
+
+</div>
+
+<div>
+<h3>Focus Areas</h3>
+
+<div class="footer-links" style="margin-top:10px">
+<a href="#courses">Science</a>
+<a href="#courses">Technology</a>
+<a href="#courses">Digital Skills</a>
+<a href="#certificates">Achievements</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Lakshya Tutorial • Educational Project
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+
+/* DARK MODE */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+    const button=document.querySelector(".theme-btn");
+
+    if(document.body.classList.contains("dark")){
+        button.textContent="☀️";
+        localStorage.setItem("theme","dark");
+    }else{
+        button.textContent="🌙";
+        localStorage.setItem("theme","light");
+    }
+
+}
+
+
+/* LOAD THEME */
+
+if(localStorage.getItem("theme")==="dark"){
+    document.body.classList.add("dark");
+    document.querySelector(".theme-btn").textContent="☀️";
+}
+
+
+/* COURSE SEARCH */
+
+function searchCourses(){
+
+    const input=document
+        .getElementById("courseSearch")
+        .value
+        .toLowerCase();
+
+    const courses=document.querySelectorAll(".course");
+
+    courses.forEach(function(course){
+
+        const text=course.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            course.style.display="block";
+        }else{
+            course.style.display="none";
+        }
+
+    });
+
+}
+
+
+/* CONTACT FORM */
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    alert(
+        "Thank you! This is a demo contact form. " +
+        "To receive real messages, a backend or form service needs to be connected."
+    );
+
+}
+
+</script>
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged, 
+  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+   getDoc, 
+    collection, 
+    getDocs, 
+    addDoc, 
+    deleteDoc
+} from 
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZYc90TM1p9eXE56K6V-q1EZrpF_E1aD8",
+    authDomain: "lakshya-tutorial-8d4bf.firebaseapp.com",
+    projectId: "lakshya-tutorial-8d4bf",
+    storageBucket: "lakshya-tutorial-8d4bf.firebasestorage.app",
+    messagingSenderId: "1022368652605",
+    appId: "1:1022368652605:web:9a170b155cfc4fb07bb954"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+const db = getFirestore(app);
+let currentStudentId = "";
+
+  console.log("Firebase connected successfully!");
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const loginPanel = document.getElementById("accountLoginPanel");
+    const signupPanel = document.getElementById("accountSignupPanel");
+    const loginTab = document.getElementById("accountLoginTab");
+    const signupTab = document.getElementById("accountSignupTab");
+    const authSection = document.getElementById("studentAccount");
+
+    function showAccountPanel(mode){
+      const loginMode = mode === "login";
+      loginPanel.style.display = loginMode ? "block" : "none";
+      signupPanel.style.display = loginMode ? "none" : "block";
+      loginTab.style.background = loginMode ? "#111" : "#fff";
+      loginTab.style.color = loginMode ? "#fff" : "#111";
+      signupTab.style.background = loginMode ? "#fff" : "#111";
+      signupTab.style.color = loginMode ? "#111" : "#fff";
+      authSection.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+
+    loginTab.addEventListener("click",()=>showAccountPanel("login"));
+    signupTab.addEventListener("click",()=>showAccountPanel("signup"));
+    document.getElementById("topLoginBtn").addEventListener("click",()=>showAccountPanel("login"));
+    document.getElementById("topSignupBtn").addEventListener("click",()=>showAccountPanel("signup"));
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        document.getElementById("studentProfile").style.display = "none";
+        return;
+      }
+      try {
+        const snap = await getDoc(doc(db,"students",user.uid));
+        if (snap.exists()) {
+          const student=snap.data();
+          document.getElementById("profileName").textContent=student.name || "";
+          document.getElementById("profileDOB").textContent=student.dob || "";
+          document.getElementById("profileEmail").textContent=student.email || user.email || "";
+          document.getElementById("studentProfile").style.display="block";
+        }
+      } catch (e) {
+        console.error("Could not load student profile", e);
+      }
+    });
+
+    document.getElementById("registerBtn").addEventListener("click", async () => {
+  const email = document.getElementById("registerEmail").value;
+  const password = document.getElementById("registerPassword").value;
+  const message = document.getElementById("authMessage");
+const name = document.getElementById("registerName").value;
+const dob = document.getElementById("registerDOB").value;
+        
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+const user = userCredential.user;
+
+await setDoc(doc(db, "students", user.uid), {
+  name: name,
+  dob: dob,
+  email: user.email
+});
+
+message.textContent = "Registration successful! You are now logged in.";
+    document.getElementById("studentProfile").style.display = "block";
+    document.getElementById("profileName").textContent = name;
+    document.getElementById("profileDOB").textContent = dob;
+    document.getElementById("profileEmail").textContent = user.email || email;
+  } catch (error) {
+    message.textContent = error.message;
+  }
+});
+
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  const message = document.getElementById("authMessage");
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+const studentRef = doc(db, "students", user.uid);
+const studentSnap = await getDoc(studentRef);
+
+if (studentSnap.exists()) {
+  const student = studentSnap.data();
+
+  message.textContent = "Welcome, " + student.name + "!";
+
+  document.getElementById("profileName").textContent = student.name;
+  document.getElementById("profileDOB").textContent = student.dob;
+  document.getElementById("profileEmail").textContent = student.email;
+
+  document.getElementById("studentProfile").style.display = "block";
+} else {
+  message.textContent = "PROFILE NOT FOUND";
+    }
+    
+  } catch (error) {
+    message.textContent = error.message;
+  }
+      });
+
+const profileBtn = document.getElementById("profileBtn");
+
+if (profileBtn) {
+  profileBtn.addEventListener("click", () => {
+    document.getElementById("studentProfile").style.display = "block";
+    document.getElementById("studentAccount").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+    }
+
+   document.getElementById("teacherLoginBtn").addEventListener("click", async () => {
+  const email = document.getElementById("teacherEmail").value.trim();
+  const password = document.getElementById("teacherPassword").value;
+  const message = document.getElementById("teacherMessage");
+
+  if (email !== "mdnazimansari333@gmail.com") {
+    message.textContent = "Teacher access denied.";
+    return;
+  }
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+
+    message.textContent = "Teacher login successful!";
+
+      const studentsSnapshot = await getDocs(collection(db, "students"));
+document.getElementById("studentCount").textContent = studentsSnapshot.size;
+const searchInput = document.getElementById("studentSearch");
+      
+      const studentList = document.getElementById("studentList");
+studentList.innerHTML = "";
+  searchInput.oninput = () => {
+  const searchText = searchInput.value.toLowerCase();
+
+  for (const box of studentList.children) {
+    box.style.display =
+      box.textContent.toLowerCase().includes(searchText)
+        ? "block"
+        : "none";
+  }
+};    
+
+
+  studentsSnapshot.forEach((studentDoc) => {
+  const student = studentDoc.data();
+  const studentId = studentDoc.id;
+
+  const studentBox = document.createElement("div");
+  studentBox.style.padding = "12px";
+  studentBox.style.marginTop = "10px";
+  studentBox.style.border = "1px solid #ddd";
+  studentBox.style.borderRadius = "8px";
+
+  studentBox.innerHTML = `
+    <strong>${student.name || "No Name"}</strong><br>
+    DOB: ${student.dob || "Not provided"}<br>
+    Email: ${student.email || "Not provided"}<br><br>
+  `;
+
+  const editButton = document.createElement("button");
+  editButton.type = "button";
+  editButton.textContent = "Edit Student";
+
+  editButton.addEventListener("click", () => {
+    window.openEditStudent(studentId);
+  });
+
+  studentBox.appendChild(editButton);
+
+const deleteButton = document.createElement("button");
+deleteButton.type = "button";
+deleteButton.textContent = "Delete Student";
+
+deleteButton.style.marginLeft = "10px";
+
+deleteButton.addEventListener("click", async () => {
+
+  const confirmDelete = confirm(
+    "Are you sure you want to delete this student?"
+  );
+
+  if (!confirmDelete) {
+    return;
+  }
+
+  try {
+
+    await deleteDoc(doc(db, "students", studentId));
+
+    studentBox.remove();
+
+    const remainingStudents =
+      document.getElementById("studentList").children.length;
+
+    document.getElementById("studentCount").textContent =
+      remainingStudents;
+
+    alert("Student deleted successfully!");
+
+  } catch (error) {
+    alert("Delete failed: " + error.message);
+  }
+
+});
+
+studentBox.appendChild(deleteButton);
+studentList.appendChild(studentBox);
+});
+      // Load website ratings
+const ratingsSnapshot = await getDocs(
+  collection(db, "websiteRatings")
+);
+
+let totalRating = 0;
+let ratingCount = 0;
+
+const ratingList = document.getElementById("ratingList");
+ratingList.innerHTML = "";
+
+ratingsSnapshot.forEach((ratingDoc) => {
+  const rating = ratingDoc.data();
+
+  totalRating += Number(rating.rating);
+  ratingCount++;
+
+  const ratingBox = document.createElement("div");
+
+  ratingBox.style.padding = "12px";
+  ratingBox.style.marginTop = "10px";
+  ratingBox.style.border = "1px solid #ddd";
+  ratingBox.style.borderRadius = "8px";
+
+  ratingBox.innerHTML = `
+    <strong>${"⭐".repeat(Number(rating.rating))}</strong><br>
+    ${rating.feedback || "No feedback written."}
+  `;
+
+  ratingList.appendChild(ratingBox);
+});
+
+const average =
+  ratingCount > 0
+    ? (totalRating / ratingCount).toFixed(1)
+    : "0.0";
+
+document.getElementById("averageRating").textContent =
+  average + " ⭐";
+
+document.getElementById("ratingCount").textContent =
+  ratingCount + (ratingCount === 1 ? " rating" : " ratings");
+    document.getElementById("teacherDashboard").style.display = "block";
+    document.getElementById("teacherDashboard").scrollIntoView({
+      behavior: "smooth"
+    });
+
+  } catch (error) {
+    message.textContent = "Teacher login failed: " + error.message;
+  }
+});
+    window.openEditStudent = async function(studentId) {
+
+  currentStudentId = studentId;
+
+  try {
+    const studentSnap = await getDoc(doc(db, "students", studentId));
+
+    if (!studentSnap.exists()) {
+      alert("Student not found.");
+      return;
+    }
+
+    const student = studentSnap.data();
+
+    document.getElementById("editName").value = student.name || "";
+    document.getElementById("editDOB").value = student.dob || "";
+    document.getElementById("editEmail").value = student.email || "";
+
+    document.getElementById("editStudentForm").style.display = "block";
+
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+};
+
+document.getElementById("saveStudentBtn").addEventListener("click", async () => {
+  const name = document.getElementById("editName").value.trim();
+  const dob = document.getElementById("editDOB").value;
+  const email = document.getElementById("editEmail").value.trim();
+
+  if (!name || !email) {
+    alert("Name and Email are required.");
+    return;
+  }
+
+  try {
+    await setDoc(doc(db, "students", currentStudentId), {
+      name: name,
+      dob: dob,
+      email: email
+    });
+
+    alert("Student updated successfully!");
+    document.getElementById("editStudentForm").style.display = "none";
+
+  } catch (error) {
+    alert("Update failed: " + error.message);
+  }
+});
+        
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await signOut(auth);
+  document.getElementById("studentProfile").style.display = "none";
+  document.getElementById("authMessage").textContent = "Logged out successfully!";
+
+
+    });
+const submitRatingBtn = document.getElementById("submitRatingBtn");
+
+if (submitRatingBtn) {
+  submitRatingBtn.addEventListener("click", async () => {
+
+  const rating = document.getElementById("websiteRating").value;
+  const feedback = document.getElementById("websiteFeedback").value.trim();
+  const message = document.getElementById("ratingMessage");
+
+  if (!rating) {
+    message.textContent = "Please select a rating.";
+    return;
+  }
+
+  try {
+
+    await addDoc(collection(db, "websiteRatings"), {
+      rating: Number(rating),
+      feedback: feedback,
+      createdAt: new Date().toISOString()
+    });
+
+    message.textContent = "Thank you for your rating! ⭐";
+
+    document.getElementById("websiteRating").value = "";
+    document.getElementById("websiteFeedback").value = "";
+
+  } catch (error) {
+    message.textContent = "Could not submit rating: " + error.message;
+  }
+
+});
+}
+ // Post Teacher Announcement
+const postAnnouncementBtn = document.getElementById("postAnnouncementBtn");
+
+if (postAnnouncementBtn) {
+
+  postAnnouncementBtn.addEventListener("click", async () => {
+
+    const title = document.getElementById("announcementTitle").value.trim();
+    const text = document.getElementById("announcementText").value.trim();
+    const message = document.getElementById("announcementMessage");
+
+    if (!title || !text) {
+      message.textContent = "Please enter both a title and announcement.";
+      return;
+    }
+
+    try {
+
+      await addDoc(collection(db, "announcements"), {
+        title: title,
+        text: text,
+        createdAt: new Date().toISOString()
+      });
+
+      message.textContent = "Announcement posted successfully! 📢";
+
+      document.getElementById("announcementTitle").value = "";
+      document.getElementById("announcementText").value = "";
+
+    } catch (error) {
+
+      message.textContent =
+        "Could not post announcement: " + error.message;
+
+    }
+
+  });
+
+    }
+    // Load Teacher Announcements for Students
+const announcementList = document.getElementById("announcementList");
+
+if (announcementList) {
+
+  const announcementsSnapshot = await getDocs(
+    collection(db, "announcements")
+  );
+
+  announcementList.innerHTML = "";
+
+  if (announcementsSnapshot.empty) {
+    announcementList.innerHTML = "<p>No announcements yet.</p>";
+  } else {
+
+    announcementsSnapshot.forEach((announcementDoc) => {
+
+      const announcement = announcementDoc.data();
+
+      const box = document.createElement("div");
+
+      box.style.padding = "12px";
+      box.style.marginTop = "10px";
+      box.style.border = "1px solid #ddd";
+      box.style.borderRadius = "8px";
+
+      box.innerHTML = `
+        <strong>${announcement.title || "Announcement"}</strong>
+        <p>${announcement.text || ""}</p>
+      `;
+
+      announcementList.appendChild(box);
+    });
+  }
+}
+});
+</script>
+<button id="profileBtn" onclick="document.getElementById('studentProfile').scrollIntoView({behavior:'smooth'})" style="padding:12px 20px;margin:10px;" class="lt-old-nav" type="button" aria-label="Profile" title="Profile" class="lt-profile-person" type="button">👤</button>
+
+    
+
+<!-- Refresh and Rating buttons -->
+<div style="text-align:center;margin:20px 0;">
+
+  <button
+    onclick="location.reload()"
+    style="padding:12px 20px;margin:5px;border:none;border-radius:8px;">
+    🔄 Refresh
+  </button>
+
+    <!-- Student Announcements -->
+<div id="studentAnnouncements"
+  style="max-width:600px;margin:20px auto;padding:20px;border:1px solid #ddd;border-radius:12px;">
+
+  <h3>📢 Teacher Announcements</h3>
+
+  <div id="announcementList">
+    <p>No announcements yet.</p>
+  </div>
+
+</div>
+
+  <button
+    onclick="document.getElementById('ratingBox').style.display='block'"
+    style="padding:12px 20px;margin:5px;border:none;border-radius:8px;">
+    ⭐ Rate This Website
+  </button>
+
+</div>
+<div id="ratingBox"
+  style="display:none;max-width:400px;margin:20px auto;padding:20px;border:1px solid #ddd;border-radius:12px;">
+
+  <h3>⭐ Rate This Website</h3>
+
+  <p>How would you rate Lakshya Tutorial?</p>
+
+  <select id="websiteRating"
+    style="width:100%;padding:12px;margin:8px 0;">
+    <option value="">Select rating</option>
+    <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+    <option value="4">⭐⭐⭐⭐ Very Good</option>
+    <option value="3">⭐⭐⭐ Good</option>
+    <option value="2">⭐⭐ Needs Improvement</option>
+    <option value="1">⭐ Poor</option>
+  </select>
+
+  <textarea id="websiteFeedback"
+    placeholder="Write your feedback (optional)"
+    style="width:100%;height:90px;padding:10px;box-sizing:border-box;margin:8px 0;"></textarea>
+
+  <button id="submitRatingBtn"
+    style="width:100%;padding:12px;">
+    Submit Rating
+  </button>
+
+  <p id="ratingMessage"></p>
+
+</div>
+    
+<!-- Teacher Login -->
+<div style="max-width:400px;margin:40px auto;padding:25px;border:1px solid #ddd;border-radius:12px;">
+  <h2>Teacher Login</h2>
+
+  <input id="teacherEmail" type="email" placeholder="Teacher Email"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+
+  <input id="teacherPassword" type="password" placeholder="Teacher Password"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+
+  <button id="teacherLoginBtn" style="width:100%;padding:12px;margin-top:10px;">
+    Teacher Login
+  </button>
+
+  <p id="teacherMessage"></p>
+</div>
+<!-- Teacher Dashboard -->
+<div id="teacherDashboard" style="max-width:400px;margin:40px auto;padding:25px;border:1px solid #ddd;border-radius:12px;display:none;">
+  <h2>Teacher Dashboard</h2>
+ 
+    <p style="color:#666;margin-top:-5px;">
+  Manage and view registered students
+    </p>
+    
+    <h3>Total Students</h3>
+<div style="padding:20px;margin:15px 0;border:1px solid #ddd;border-radius:12px;text-align:center;">
+  <div style="font-size:14px;color:#666;">REGISTERED STUDENTS</div>
+  <p id="studentCount" style="font-size:42px;font-weight:bold;margin:8px 0;">0</p>
+</div>
+
+<h3 style="margin-top:25px;">Student List</h3>
+
+<input
+  id="studentSearch"
+  type="text"
+  placeholder="Search student by name or email"
+  style="width:100%;padding:12px;margin:10px 0;box-sizing:border-box;"
+>
+
+<div id="studentList"></div>
+    <!-- Website Ratings -->
+<div style="margin-top:30px;padding:20px;border:1px solid #ddd;border-radius:12px;">
+
+  <h3>⭐ Website Ratings</h3>
+
+  <div style="text-align:center;margin:15px 0;">
+    <div style="font-size:14px;color:#666;">AVERAGE RATING</div>
+
+    <div id="averageRating"
+      style="font-size:36px;font-weight:bold;margin:5px 0;">
+      0.0 ⭐
+    </div>
+
+    <div id="ratingCount" style="color:#666;">
+      0 ratings
+    </div>
+  </div>
+
+  <h4>Student Feedback</h4>
+
+  <div id="ratingList"></div>
+
+</div>
+
+<!-- Teacher Announcements -->
+<div style="margin-top:30px;padding:20px;border:1px solid #ddd;border-radius:12px;">
+
+  <h3>📢 Teacher Announcement</h3>
+
+  <input
+    id="announcementTitle"
+    type="text"
+    placeholder="Announcement title"
+    style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;"
+  >
+
+  <textarea
+    id="announcementText"
+    placeholder="Write your announcement..."
+    style="width:100%;height:100px;padding:12px;margin:8px 0;box-sizing:border-box;"
+  ></textarea>
+
+  <button
+    id="postAnnouncementBtn"
+    style="width:100%;padding:12px;margin-top:8px;"
+  >
+    Post Announcement
+  </button>
+
+  <p id="announcementMessage"></p>
+
+</div>
+    
+  <div id="editStudentForm" style="display:none;margin-top:20px;padding:15px;border:1px solid #ddd;border-radius:12px;">
+  <h3>Edit Student</h3>
+
+  <input id="editName" type="text" placeholder="Student Name"
+    style="width:100%;padding:10px;margin:6px 0;box-sizing:border-box;">
+
+  <input id="editDOB" type="date"
+    style="width:100%;padding:10px;margin:6px 0;box-sizing:border-box;">
+
+  <input id="editEmail" type="email" placeholder="Email"
+    style="width:100%;padding:10px;margin:6px 0;box-sizing:border-box;">
+
+  <button id="saveStudentBtn" style="width:100%;padding:10px;margin-top:10px;">
+    Save Changes
+  </button>
+  </div>  
+</div>
+</body>
+</html>
