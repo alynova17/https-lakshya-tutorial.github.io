@@ -1403,9 +1403,13 @@ if (studentSnap.exists()) {
   }
       });
 
-document.getElementById("profileBtn").addEventListener("click", () => {
-  document.getElementById("studentProfile").style.display = "block";
-});
+const profileBtn = document.getElementById("profileBtn");
+
+if (profileBtn) {
+  profileBtn.addEventListener("click", () => {
+    document.getElementById("studentProfile").style.display = "block";
+  });
+    }
 
    document.getElementById("teacherLoginBtn").addEventListener("click", async () => {
   const email = document.getElementById("teacherEmail").value.trim();
