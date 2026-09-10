@@ -1348,7 +1348,7 @@ const db = getFirestore(app);
 let currentStudentId = "";
 
   console.log("Firebase connected successfully!");
-    alert("Firebase JavaScript is running!");
+
 document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("registerBtn").addEventListener("click", async () => {
   const email = document.getElementById("registerEmail").value;
@@ -1654,37 +1654,45 @@ if (submitRatingBtn) {
 
 });
 }
-    // Post Teacher Announcement
+ // Post Teacher Announcement
 const postAnnouncementBtn = document.getElementById("postAnnouncementBtn");
 
 if (postAnnouncementBtn) {
 
-  const title = document.getElementById("announcementTitle").value.trim();
-  const text = document.getElementById("announcementText").value.trim();
-  const message = document.getElementById("announcementMessage");
+  postAnnouncementBtn.addEventListener("click", async () => {
 
-  if (!title || !text) {
-    message.textContent = "Please enter both a title and announcement.";
-    return;
-  }
+    const title = document.getElementById("announcementTitle").value.trim();
+    const text = document.getElementById("announcementText").value.trim();
+    const message = document.getElementById("announcementMessage");
 
-  try {
-    await addDoc(collection(db, "announcements"), {
-      title: title,
-      text: text,
-      createdAt: new Date().toISOString()
-    });
-  }
-    message.textContent = "Announcement posted successfully! 📢";
+    if (!title || !text) {
+      message.textContent = "Please enter both a title and announcement.";
+      return;
+    }
 
-    document.getElementById("announcementTitle").value = "";
-    document.getElementById("announcementText").value = "";
+    try {
 
-  } catch (error) {
-    message.textContent = "Could not post announcement: " + error.message;
-  }
+      await addDoc(collection(db, "announcements"), {
+        title: title,
+        text: text,
+        createdAt: new Date().toISOString()
+      });
 
-});
+      message.textContent = "Announcement posted successfully! 📢";
+
+      document.getElementById("announcementTitle").value = "";
+      document.getElementById("announcementText").value = "";
+
+    } catch (error) {
+
+      message.textContent =
+        "Could not post announcement: " + error.message;
+
+    }
+
+  });
+
+    }
     // Load Teacher Announcements for Students
 const announcementList = document.getElementById("announcementList");
 
