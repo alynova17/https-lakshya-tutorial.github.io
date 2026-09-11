@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LT Student Dashboard</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#111827}.top{background:#111827;color:white;padding:16px 18px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;font-size:20px}.wrap{max-width:1000px;margin:auto;padding:20px}.welcome{background:white;border-radius:18px;padding:22px;box-shadow:0 5px 20px #00000010;margin-bottom:18px}.welcome h1{margin:0 0 6px;font-size:26px}.muted{color:#6b7280}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid #e5e7eb;border-radius:16px;padding:20px;min-height:110px;box-sizing:border-box}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:#6b7280;line-height:1.5}.big{grid-column:1/-1}.btn{border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}.logout{background:white;color:#111827}.status{margin-top:10px;padding:10px;border-radius:10px;background:#f3f4f6;color:#4b5563}.loading{text-align:center;padding:40px}.error{background:#fee2e2;color:#991b1b;padding:14px;border-radius:12px}.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.linkbtn{background:#111827;color:white}.linkbtn.secondary{background:#e5e7eb;color:#111827}@media(max-width:650px){.grid{grid-template-columns:1fr}.big{grid-column:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">LT — Lakshya Tutorial</div><button class="btn logout" id="logoutBtn">Logout</button></header>
+<main class="wrap">
+<div id="loading" class="loading">Loading your dashboard...</div>
+<div id="app" style="display:none">
+<section class="welcome"><h1 id="welcomeName">Welcome!</h1><div class="muted">Your personal LT learning space</div><div class="status" id="studentMeta"></div><div class="links"><button class="btn linkbtn" onclick="location.href='index.html'">Home</button><button class="btn linkbtn secondary" onclick="location.href='profile.html'">Profile</button></div></section>
+<section class="grid">
+<div class="card"><h3>📚 Continue Learning</h3><p>Quickly return to your latest study material.</p></div>
+<div class="card"><h3>📝 Tests & Quizzes</h3><p>Take LT tests, submit answers, and view your results.</p><div class="links"><button class="btn linkbtn" onclick="location.href='tests.html'">Open Tests</button></div></div>
+<div class="card"><h3>📊 My Progress</h3><p>Track completed learning activities and progress.</p></div>
+<div class="card"><h3>🔥 Study Streak</h3><p>Build a healthy, consistent learning routine.</p></div>
+<div class="card"><h3>🏆 LT Rank</h3><p>Your learning-based rank will appear here when ranking is enabled.</p></div>
+<div class="card"><h3>🎖️ LT Badges</h3><p>Learning milestones and achievements will appear here.</p></div>
+<div class="card"><h3>🔔 Notifications</h3><p>Important updates for your account will appear here.</p></div>
+<div class="card"><h3>🆕 New Materials</h3><p>Recently added study resources will appear here.</p></div>
+<div class="card big"><h3>📢 Latest Announcement</h3><p id="announcementText">No announcement available yet.</p></div>
+<div class="card big"><h3>🤖 LT AI Assist</h3><p>Ask doubts, explain topics, get hints, revise, and plan your study sessions. The secure AI system will be connected in a later upgrade.</p></div>
+</section></div>
+<div id="error" style="display:none"></div>
+</main>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {getAuth,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import {getFirestore,doc,getDoc,collection,getDocs,query,orderBy,limit} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+const firebaseConfig={apiKey:"AIzaSyBZYc90TM1p9eXE56K6V-q1EZrpF_E1aD8",authDomain:"lakshya-tutorial-8d4bf.firebaseapp.com",projectId:"lakshya-tutorial-8d4bf",storageBucket:"lakshya-tutorial-8d4bf.firebasestorage.app",messagingSenderId:"1022368652605",appId:"1:1022368652605:web:9a170b155cfc4fb07bb954"};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
+document.getElementById('logoutBtn').addEventListener('click',async()=>{await signOut(auth);location.href='index.html';});
+onAuthStateChanged(auth,async user=>{
+ if(!user){location.href='index.html';return;}
+ try{
+  const snap=await getDoc(doc(db,'students',user.uid));
+  if(!snap.exists()){throw new Error('Student profile not found.');}
+  const s=snap.data();
+  document.getElementById('welcomeName').textContent='Welcome, '+(s.name||'Student')+'!';
+  document.getElementById('studentMeta').textContent='LT ID: '+(s.studentId||'Not assigned yet')+'  •  Email: '+(s.email||user.email||'');
+  try{
+   const q=query(collection(db,'announcements'),orderBy('createdAt','desc'),limit(1));
+   const a=await getDocs(q);
+   if(!a.empty){const d=a.docs[0].data();document.getElementById('announcementText').textContent=d.message||d.text||d.title||'New announcement available.';}
+  }catch(e){console.log('Announcements unavailable:',e.message);}
+  document.getElementById('loading').style.display='none';document.getElementById('app').style.display='block';
+ }catch(e){document.getElementById('loading').style.display='none';const box=document.getElementById('error');box.className='error';box.textContent=e.message||'Could not load dashboard.';box.style.display='block';}
+});
+</script>
+</body>
+</html>
