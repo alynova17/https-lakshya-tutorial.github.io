@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LT Study Materials</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:5}.brand{font-weight:800;font-size:20px}.btn{border:1px solid #d9dee7;border-radius:10px;padding:10px 14px;background:#fff;cursor:pointer;font-weight:600}.primary{background:#111;color:#fff;border-color:#111}.wrap{max-width:1050px;margin:25px auto;padding:0 16px}.hero,.card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;box-shadow:0 7px 22px #0000000a}.hero{padding:24px;margin-bottom:18px}.hero h1{margin:0 0 6px}.muted{color:#667085}.controls{padding:18px;margin-bottom:18px}.grid3{display:grid;grid-template-columns:1fr 1fr 2fr;gap:10px}.input,.select{width:100%;padding:12px;border:1px solid #d9dee7;border-radius:10px;font:inherit;background:#fff}.results{padding:20px}.material{border:1px solid #e5e7eb;border-radius:14px;padding:16px;margin:12px 0;background:#fff}.material h3{margin:0 0 7px}.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#eef2f7;font-size:12px}.open{display:inline-block;text-decoration:none;margin-top:8px}.empty{text-align:center;padding:28px;color:#667085}.login{max-width:500px;margin:60px auto;padding:0 16px}.login .card{padding:25px}.msg{min-height:22px}.err{color:#b42318}.ok{color:#027a48}.small{font-size:13px;color:#667085}@media(max-width:700px){.grid3{display:block}.grid3>*{margin-bottom:10px}.hero,.results,.controls{padding:17px}}
+</style>
+</head>
+<body>
+<header><div class="brand">LT · Study Materials</div><div><button class="btn" id="homeBtn">← Home</button><button class="btn" id="profileBtn">👤 Profile</button></div></header>
+<div id="loginBox" class="login" style="display:none"><section class="card"><h2>Student Login Required</h2><p class="muted">Please log in to Lakshya Tutorial to view your study materials.</p><button class="btn primary" id="loginGo">Go to Login</button></section></div>
+<main class="wrap" id="content" style="display:none">
+<section class="hero"><h1>Study Materials</h1><p class="muted">Find study resources for Classes 1–12. Choose your class and subject, then open the material.</p></section>
+<section class="card controls"><div class="grid3"><select class="select" id="classFilter"><option value="all">All Classes</option></select><select class="select" id="subjectFilter"><option value="all">All Subjects</option></select><input class="input" id="searchBox" placeholder="Search material, chapter or title"></div></section>
+<section class="card results"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><div><h2 style="margin:0">Available Materials</h2><div class="small" id="countText">Loading...</div></div></div><div id="materialsList"></div></section>
+</main>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import{getAuth,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import{getFirestore,collection,getDocs}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyBZYc90TM1p9eXE56K6V-q1EZrpF_E1aD8",authDomain:"lakshya-tutorial-8d4bf.firebaseapp.com",projectId:"lakshya-tutorial-8d4bf",storageBucket:"lakshya-tutorial-8d4bf.firebasestorage.app",messagingSenderId:"1022368652605",appId:"1:1022368652605:web:9a170b155cfc4fb07bb954"});
+const auth=getAuth(app),db=getFirestore(app);let materials=[];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const classFilter=document.getElementById('classFilter'),subjectFilter=document.getElementById('subjectFilter'),searchBox=document.getElementById('searchBox'),list=document.getElementById('materialsList');
+for(let i=1;i<=12;i++)classFilter.insertAdjacentHTML('beforeend',`<option value="${i}">Class ${i}</option>`);['Mathematics','Science','English','Social Science','Hindi','Physics','Chemistry','Biology','Computer'].forEach(x=>subjectFilter.insertAdjacentHTML('beforeend',`<option>${esc(x)}</option>`));
+function render(){const cls=classFilter.value,sub=subjectFilter.value,q=searchBox.value.trim().toLowerCase();const rows=materials.filter(x=>(cls==='all'||String(x.classLevel)===cls)&&(sub==='all'||String(x.subject||'')===sub)&&(!q||[x.title,x.chapter,x.subject,x.type].join(' ').toLowerCase().includes(q)));document.getElementById('countText').textContent=rows.length+' material'+(rows.length===1?'':'s');if(!rows.length){list.innerHTML='<div class="empty">No published material matches your selection yet.</div>';return;}list.innerHTML=rows.map(x=>`<article class="material"><h3>${esc(x.title||'Untitled Material')}</h3><div class="meta"><span class="pill">Class ${esc(x.classLevel||'')}</span><span class="pill">${esc(x.subject||'')}</span><span class="pill">${esc(x.chapter||'')}</span><span class="pill">${esc(x.type||'Material')}</span></div><div class="small">${esc(x.description||'Study resource from Lakshya Tutorial.')}</div><a class="btn primary open" href="${esc(x.url||'#')}" target="_blank" rel="noopener noreferrer">Open Material</a></article>`).join('');}
+async function load(){try{const snap=await getDocs(collection(db,'materials'));materials=snap.docs.map(d=>({id:d.id,...d.data()})).filter(x=>x.published!==false);render();}catch(e){document.getElementById('countText').textContent='';list.innerHTML='<div class="empty"><b>Materials could not be loaded.</b><br><span class="small">Please check Firestore permissions or try again later.</span></div>';}}
+[classFilter,subjectFilter,searchBox].forEach(x=>x.addEventListener('input',render));document.getElementById('homeBtn').onclick=()=>location.href='index.html';document.getElementById('profileBtn').onclick=()=>location.href='profile.html';document.getElementById('loginGo').onclick=()=>location.href='index.html';
+onAuthStateChanged(auth,user=>{if(user){document.getElementById('loginBox').style.display='none';document.getElementById('content').style.display='block';load();}else{document.getElementById('content').style.display='none';document.getElementById('loginBox').style.display='block';}});
+</script>
+</body></html>
